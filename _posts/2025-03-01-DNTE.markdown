@@ -5,7 +5,7 @@ date:   2025-03-01 08:45:00 +00:00
 image: /images/DNTE.jpg
 categories: research
 authors: "Haonian Ji, Hongmei Chen, and Yong Mi"
-venue: "under review"
+venue: "Accepted by IJCRS 2025"
 arxiv: 
 code: 
 website: 
