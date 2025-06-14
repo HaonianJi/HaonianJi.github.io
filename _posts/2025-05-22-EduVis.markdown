@@ -5,6 +5,7 @@ date:   2025-05-22 16:02:18 +00:00
 image: /images/EduVisBench.png
 categories: Agent
 authors: "Haonian Ji, Shi Qiu, Siyang Xin, Siwei Han, Zhaorun Chen, Dake Zhang, Hongyi Wang, Huaxiu Yao"
+venue: "under EMNLP review"
 arxiv: https://arxiv.org/abs/2505.16832
 code: https://github.com/aiming-lab/EduVisAgent
 website: https://arxiv.org/abs/2505.16832
