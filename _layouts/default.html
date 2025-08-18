@@ -5,10 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ site.title | default: "Haonian Ji" }}</title>
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
-  <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  
-  <!-- Google tag (gtag.js) -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Roboto:wght@400;700&display=swap">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-E00L9PT3V9"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -17,31 +15,36 @@
     gtag('config', 'G-E00L9PT3V9');
   </script>
 </head>
-
 <body>
-  <div class="wrapper">
-    <aside class="sidebar">
-      <header>
-        <img src="images/circle_bw_crop.jpg" class="avatar" alt="profile picture">
+  <div class="container">
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <img src="{{ site.baseurl }}/images/circle_bw_crop.jpg" class="avatar" alt="profile picture">
         <h1 class="name">Haonian Ji (纪浩南)</h1>
         <p class="title">Undergraduate Student at SWJTU</p>
-        <p class="bio">I am an undergraduate student majoring in Artificial Intelligence, focusing on AI alignment and evolutionary algorithms.</p>
-        <div class="social-links">
-          <a href="mailto:2022111346@my.swjtu.edu.cn" class="social-link" aria-label="Email"><i class="fas fa-envelope"></i></a>
-          <a href="https://github.com/HaonianJi" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
-          <a href="https://openreview.net/profile?id=~Haonian_Ji1" class="social-link" aria-label="OpenReview"><i class="fas fa-graduation-cap"></i></a>
-        </div>
-      </header>
-    </aside>
-    <main class="main-content">
+      </div>
+      <div class="sidebar-bio">
+        <p>AI Alignment & Evolutionary Algorithms</p>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="#about">About</a>
+        <a href="#news">News</a>
+        <a href="#research">Research</a>
+        <a href="#intel-projects">Intel Projects</a>
+        <a href="#other-projects">Other Projects</a>
+      </nav>
+      <div class="social-links">
+        <a href="mailto:2022111346@my.swjtu.edu.cn" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        <a href="https://github.com/HaonianJi" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://openreview.net/profile?id=~Haonian_Ji1" aria-label="OpenReview"><i class="fas fa-graduation-cap"></i></a>
+      </div>
+    </div>
+
+    <main class="content">
       <section id="about">
         <h2>About Me</h2>
-        <p>
-          I am an undergraduate student majoring in <strong>Artificial Intelligence</strong> at the <a href="https://scai.swjtu.edu.cn/">School of Computer and Artificial Intelligence</a>, Southwest Jiaotong University. My advisor is <a href="https://www.researchgate.net/profile/Hongmei-Chen-13">Hongmei Chen</a>.
-        </p>
-        <p>
-          During the 2024-2025 period, I am engaged in a remote research <strong>internship</strong> at the <strong> <a href="https://www.huaxiuyao.io/aiming-lab/">AIMING Lab</a>, University of North Carolina at Chapel Hill</strong>, under the supervision of <a href="https://www.huaxiuyao.io/"> Prof. Huaxiu Yao</a>, focusing on <strong>AI alignment</strong>. I am contributing to multiple projects, with two co-authored papers (<a href="https://aiming-lab.github.io/MJ-VIDEO.github.io/"><em>MJ-Video</em></a> and <em>GLIMPSE</em>) currently under review.
-        </p>
+        <p>I am an undergraduate student majoring in <strong>Artificial Intelligence</strong> at the <a href="https://scai.swjtu.edu.cn/">School of Computer and Artificial Intelligence</a>, Southwest Jiaotong University. My advisor is <a href="https://www.researchgate.net/profile/Hongmei-Chen-13">Hongmei Chen</a>.</p>
+        <p>During the 2024-2025 period, I am engaged in a remote research <strong>internship</strong> at the <strong><a href="https://www.huaxiuyao.io/aiming-lab/">AIMING Lab</a>, University of North Carolina at Chapel Hill</strong>, under the supervision of <a href="https://www.huaxiuyao.io/">Prof. Huaxiu Yao</a>, focusing on <strong>AI alignment</strong>. I am contributing to multiple projects, with two co-authored papers (<a href="https://aiming-lab.github.io/MJ-VIDEO.github.io/"><em>MJ-Video</em></a> and <em>GLIMPSE</em>) currently under review.</p>
       </section>
 
       <section id="news">
@@ -52,12 +55,12 @@
         </ul>
       </section>
 
+      {% assign research_posts = site.posts | where_exp:"post", "post.categories contains 'research'" | sort: 'display_order' %}
+      {% if research_posts.size > 0 %}
       <section id="research">
         <h2>Research</h2>
         <div class="publications">
-          {% assign sorted_posts = site.posts | sort: 'display_order' %}
-          {% for post in sorted_posts %}
-            {% if post.categories contains 'research' %}
+          {% for post in research_posts %}
             <article class="publication-item">
               <div class="publication-thumbnail">
                 <img src="{{ site.baseurl }}/{{ post.image }}" alt="{{ post.title }} thumbnail">
@@ -65,10 +68,7 @@
               <div class="publication-details">
                 <h3 class="publication-title">{{ post.title }}</h3>
                 <p class="authors">{{ post.authors }}</p>
-                <p class="venue">In <em>{{ post.venue }}</em></p>
-                {% if post.abstract %}
-                <p class="abstract">{{ post.abstract }}</p>
-                {% endif %}
+                <p class="venue">{{ post.venue }}</p>
                 <div class="publication-links">
                   {% if post.pdf %}<a href="{{ post.pdf }}" class="btn-link">PDF</a>{% endif %}
                   {% if post.code %}<a href="{{ post.code }}" class="btn-link">Code</a>{% endif %}
@@ -77,17 +77,17 @@
                 </div>
               </div>
             </article>
-            {% endif %}
           {% endfor %}
         </div>
       </section>
+      {% endif %}
 
+      {% assign intel_posts = site.posts | where_exp:"post", "post.categories contains 'Intel'" | sort: 'display_order' %}
+      {% if intel_posts.size > 0 %}
       <section id="intel-projects">
         <h2>Intel Projects</h2>
         <div class="publications">
-          {% assign sorted_posts = site.posts | sort: 'display_order' %}
-          {% for post in sorted_posts %}
-            {% if post.categories contains 'Intel' %}
+          {% for post in intel_posts %}
             <article class="publication-item">
               <div class="publication-thumbnail">
                 <img src="{{ site.baseurl }}/{{ post.image }}" alt="{{ post.title }} thumbnail">
@@ -95,10 +95,7 @@
               <div class="publication-details">
                 <h3 class="publication-title">{{ post.title }}</h3>
                 <p class="authors">{{ post.authors }}</p>
-                <p class="venue">In <em>{{ post.venue }}</em></p>
-                {% if post.abstract %}
-                <p class="abstract">{{ post.abstract }}</p>
-                {% endif %}
+                <p class="venue">{{ post.venue }}</p>
                 <div class="publication-links">
                   {% if post.pdf %}<a href="{{ post.pdf }}" class="btn-link">PDF</a>{% endif %}
                   {% if post.code %}<a href="{{ post.code }}" class="btn-link">Code</a>{% endif %}
@@ -107,17 +104,17 @@
                 </div>
               </div>
             </article>
-            {% endif %}
           {% endfor %}
         </div>
       </section>
+      {% endif %}
 
+      {% assign other_posts = site.posts | where_exp:"post", "post.categories contains 'research' == false and post.categories contains 'Intel' == false" | sort: 'display_order' %}
+      {% if other_posts.size > 0 %}
       <section id="other-projects">
         <h2>Other Projects</h2>
         <div class="publications">
-          {% assign sorted_posts = site.posts | sort: 'display_order' %}
-          {% for post in sorted_posts %}
-            {% if post.categories contains 'research' == false and post.categories contains 'Intel' == false %}
+          {% for post in other_posts %}
             <article class="publication-item">
               <div class="publication-thumbnail">
                 <img src="{{ site.baseurl }}/{{ post.image }}" alt="{{ post.title }} thumbnail">
@@ -125,10 +122,7 @@
               <div class="publication-details">
                 <h3 class="publication-title">{{ post.title }}</h3>
                 <p class="authors">{{ post.authors }}</p>
-                <p class="venue">In <em>{{ post.venue }}</em></p>
-                {% if post.abstract %}
-                <p class="abstract">{{ post.abstract }}</p>
-                {% endif %}
+                <p class="venue">{{ post.venue }}</p>
                 <div class="publication-links">
                   {% if post.pdf %}<a href="{{ post.pdf }}" class="btn-link">PDF</a>{% endif %}
                   {% if post.code %}<a href="{{ post.code }}" class="btn-link">Code</a>{% endif %}
@@ -137,11 +131,11 @@
                 </div>
               </div>
             </article>
-            {% endif %}
           {% endfor %}
         </div>
       </section>
-      
+      {% endif %}
+
       <footer>
         <p>&copy; {{ "now" | date: "%Y" }} Haonian Ji. All rights reserved.</p>
       </footer>
@@ -149,4 +143,3 @@
   </div>
 </body>
 </html>
-
