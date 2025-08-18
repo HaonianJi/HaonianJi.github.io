@@ -109,8 +109,13 @@
       </section>
       {% endif %}
 
-      {% assign excluded_posts = site.posts | where_exp:"post", "post.categories contains 'research' or post.categories contains 'Intel'" %}
-      {% assign other_posts = site.posts | remove_first: excluded_posts | sort: 'display_order' %}
+      {% assign other_posts = '' | split: '' %}
+      {% for post in site.posts %}
+        {% unless post.categories contains 'research' or post.categories contains 'Intel' %}
+          {% assign other_posts = other_posts | push: post %}
+        {% endunless %}
+      {% endfor %}
+      {% assign other_posts = other_posts | sort: 'display_order' %}
       {% if other_posts.size > 0 %}
       <section id="other-projects">
         <h2>Other Projects</h2>
