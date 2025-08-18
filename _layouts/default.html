@@ -44,98 +44,45 @@
       </div>
     </header>
 
-    <main>
-      <section class="section">
+      <section id="news">
+        <h2>News</h2>
+        <ul>
+          <li><strong>Oct 2022</strong> - One paper accepted to CoRL 2022.</li>
+          <li><strong>Jul 2022</strong> - One paper accepted to ECCV 2022.</li>
+        </ul>
+      </section>
+
+      <section id="research">
         <h2>Research</h2>
-        <p>I'm interested in AI alignment, optimization and machine learning.</p>
-        <div class="project-list">
+        <div class="publications">
           {% assign sorted_posts = site.posts | sort: 'display_order' %}
           {% for post in sorted_posts %}
-            {% if post.categories contains 'research' %}
-            <article class="project-item">
-              <div class="project-thumbnail-container">
-                <img src="{{ site.baseurl }}/{{ post.image }}" alt="project image" class="project-thumbnail" />
+            <article class="publication-item">
+              <div class="publication-thumbnail">
+                <img src="{{ site.baseurl }}/{{ post.image }}" alt="{{ post.title }} thumbnail">
               </div>
-              <div class="project-description">
-                <h3>{{post.title}}</h3>
-                <p>{{post.authors}}</p>
-                <p><em>{{post.venue}}</em>, {{ post.date | date: "%Y" }}</p>
-                <p class="project-links">
-                  {% if post.arxiv %}<a href="{{post.arxiv}}">arxiv</a> / {% endif %}
-                  {% if post.video %}<a href="{{post.video}}">video</a> / {% endif %}
-                  {% if post.code %}<a href="{{post.code}}">code</a> / {% endif %}
-                  {% if post.poster %}<a href="{{post.poster}}">poster</a> / {% endif %}
-                  {% if post.slides %}<a href="{{post.slides}}">slides</a> / {% endif %}
-                  {% if post.website %}<a href="{{post.website}}">website</a> / {% endif %}
-                  {% if post.youtube %}<a href="{{post.youtube}}">youtube</a> / {% endif %}
-                </p>
-                {{ post.excerpt }}
+              <div class="publication-details">
+                <h3 class="publication-title">{{ post.title }}</h3>
+                <p class="authors">{{ post.authors }}</p>
+                <p class="venue">In <em>{{ post.venue }}</em></p>
+                {% if post.abstract %}
+                <p class="abstract">{{ post.abstract }}</p>
+                {% endif %}
+                <div class="publication-links">
+                  {% if post.pdf %}<a href="{{ post.pdf }}" class="btn-link">PDF</a>{% endif %}
+                  {% if post.code %}<a href="{{ post.code }}" class="btn-link">Code</a>{% endif %}
+                  {% if post.website %}<a href="{{ post.website }}" class="btn-link">Website</a>{% endif %}
+                  {% if post.slides %}<a href="{{ post.slides }}" class="btn-link">Slides</a>{% endif %}
+                </div>
               </div>
             </article>
-            {% endif %}
           {% endfor %}
         </div>
       </section>
-
-      <section class="section">
-        <h2>Intel</h2>
-        <div class="project-list">
-          {% assign sorted_posts = site.posts | sort: 'display_order' %}
-          {% for post in sorted_posts %}
-            {% if post.categories contains 'Intel' %}
-            <article class="project-item">
-              <div class="project-thumbnail-container">
-                <img src="{{ site.baseurl }}/{{ post.image }}" alt="project image" class="project-thumbnail" />
-              </div>
-              <div class="project-description">
-                <h3>{{post.title}}</h3>
-                <p><em>{{post.categories}} {{post.course}}</em></p>
-                <p>{{ post.date | date: "%Y-%m-%d" }}</p>
-                <p class="project-links">
-                  {% if post.website %}<a href="{{post.website}}">website</a> / {% endif %}
-                  {% if post.paper %}<a href="{{post.paper}}">paper</a> / {% endif %}
-                  {% if post.patent %}<a href="{{post.patent}}">patent</a> / {% endif %}
-                  {% if post.patent2 %}<a href="{{post.patent2}}">patent #2</a> / {% endif %}
-                  {% if post.patent3 %}<a href="{{post.patent3}}">patent #3</a> / {% endif %}
-                  {% if post.video %}<a href="{{post.video}}">video</a> / {% endif %}
-                  {% if post.video2 %}<a href="{{post.video2}}">video #2</a> / {% endif %}
-                  {% if post.code %}<a href="{{post.code}}">code</a> / {% endif %}
-                  {% if post.poster %}<a href="{{post.poster}}">poster</a> / {% endif %}
-                  {% if post.slides %}<a href="{{post.slides}}">slides</a> / {% endif %}
-                </p>
-                {{ post.excerpt }}
-              </div>
-            </article>
-            {% endif %}
-          {% endfor %}
-        </div>
-      </section>
-
-      <section class="section">
-        <h2>Other Projects</h2>
-        <div class="project-list">
-          {% assign sorted_posts = site.posts | sort: 'display_order' %}
-          {% for post in sorted_posts %}
-            {% if post.categories contains 'research' == false and post.categories contains 'Intel' == false %}
-            <article class="project-item">
-              <div class="project-thumbnail-container">
-                <img src="{{ site.baseurl }}/{{ post.image }}" alt="project image" class="project-thumbnail" />
-              </div>
-              <div class="project-description">
-                <h3>{{post.title}}</h3>
-                <p><em>{{post.categories}} {{post.course}}</em></p>
-                <p>{{ post.date | date: "%Y-%m-%d" }}</p>
-                <p class="project-links">
-                  {% if post.website %}<a href="{{post.website}}">website</a> / {% endif %}
-                  {% if post.paper %}<a href="{{post.paper}}">paper</a> / {% endif %}
-                  {% if post.patent %}<a href="{{post.patent}}">patent</a> / {% endif %}
-                  {% if post.patent2 %}<a href="{{post.patent2}}">patent #2</a> / {% endif %}
-                  {% if post.patent3 %}<a href="{{post.patent3}}">patent #3</a> / {% endif %}
-                  {% if post.video %}<a href="{{post.video}}">video</a> / {% endif %}
-                  {% if post.video2 %}<a href="{{post.video2}}">video #2</a> / {% endif %}
-                  {% if post.code %}<a href="{{post.code}}">code</a> / {% endif %}
-                  {% if post.poster %}<a href="{{post.poster}}">poster</a> / {% endif %}
-                  {% if post.slides %}<a href="{{post.slides}}">slides</a> / {% endif %}
+      
+      <footer>
+        <p>&copy; {{ "now" | date: "%Y" }} Haonian Ji. All rights reserved.</p>
+      </footer>
                 </p>
                 {{ post.excerpt }}
               </div>

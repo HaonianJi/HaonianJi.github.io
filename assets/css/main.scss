@@ -16,109 +16,68 @@ body {
   max-width: 800px;
   margin-right: auto;
   margin-left: auto;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  padding: 20px 40px;
-  box-sizing: border-box;
-}
-
-// Header and Intro Section
-.intro-section {
   display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 30px;
-  margin-bottom: 30px;
+  max-width: var(--max-width);
+  margin: 0 auto;
 }
 
-.intro-text {
-  flex: 3;
-  padding-right: 30px;
-  min-width: 300px;
-}
-
-.profile-pic-container {
-  flex: 2;
+// Sidebar
+.sidebar {
+  width: 300px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background-color: var(--sidebar-bg);
+  padding: 40px;
+  border-right: 1px solid var(--border-color);
   text-align: center;
-  min-width: 200px;
+  overflow-y: auto;
+
+  .avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+  }
+
+  .name {
+    font-family: var(--font-sans);
+    font-size: 1.5em;
+    margin: 0 0 10px 0;
+    color: var(--heading-color);
+  }
+
+  .title {
+    font-family: var(--font-sans);
+    font-size: 1em;
+    color: var(--text-color);
+    margin-bottom: 15px;
+  }
+
+  .bio {
+    font-size: 0.9em;
+    margin-bottom: 20px;
+  }
+
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    font-size: 1.5em;
+
+    a {
+      color: var(--text-color);
+      &:hover { color: var(--link-color); }
+    }
+  }
 }
 
-.profile-pic {
-  width: 100%;
-  max-width: 220px;
-  border-radius: 50%;
-  border: 6px solid #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-}
-
-.social-links {
-  text-align: center;
-  margin-top: 20px;
-}
-
-// Content Sections (Research, Projects)
-.section {
-  margin-top: 40px;
-}
-
-.project-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 1.5rem;
-  margin-bottom: 2rem;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid #eee;
-}
-
-.project-item:hover {
-  transform: none; /* Disable hover effect */
-  box-shadow: none;
-}
-
-.project-thumbnail-container {
-  flex: 1;
-  margin-right: 25px;
-}
-
-.project-thumbnail {
-  width: 100%;
-  max-width: 180px;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-  transition: transform 0.2s ease-in-out;
-}
-
-.project-thumbnail:hover {
-    transform: scale(1.05);
-}
-
-.project-description {
-  flex: 3;
-}
-
-.project-links a {
-  margin-right: 1rem;
-  color: #007bff;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.project-links a:hover {
-  text-decoration: underline;
-}
-
-.project-authors,
-.project-venue {
-  font-size: 0.85rem; // Slightly smaller
-  color: #555;
-  margin-bottom: 0.75rem;
-}
-
-// Footer
-.footer {
-  text-align: center;
+// Main Content
+.main-content {
+  margin-left: 380px; /* sidebar width + padding */
+  padding: 40px;
+  width: calc(100% - 380px);
   font-size: small;
   padding: 40px 0 20px 0;
   color: #888;
