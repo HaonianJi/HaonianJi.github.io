@@ -1,0 +1,12 @@
+# Bundler directories
+.bundle
+vendor/bundle
+
+# Jekyll-generated site
+_site
+
+# Sass cache
+.sass-cache
+
+# Mac system files
+.DS_Store
