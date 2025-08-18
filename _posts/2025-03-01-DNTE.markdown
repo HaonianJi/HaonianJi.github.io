@@ -2,7 +2,7 @@
 layout: post
 title:  "Two-stage multi-modal multi-objective algorithm based on dynamic niche updating"
 date:   2025-03-01 08:45:00 +00:00
-image: /images/DNTE.jpg
+image: images/DNTE.jpg
 categories: research
 authors: "Haonian Ji, Hongmei Chen, and Yong Mi"
 venue: "under review"

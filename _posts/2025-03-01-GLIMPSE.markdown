@@ -2,7 +2,7 @@
 layout: post
 title:  "GLIMPSE: LVLMs Can Watch but Do They Truly Understand?"
 date:   2025-03-01 05:50:27 +00:00
-image: /images/glimpse.png
+image: images/glimpse.png
 categories: research
 authors: "Yiyang Zhou, Linjie Li, Shi Qiu, Zhengyuan Yang, Yuyang Zhao, Siwei Han, Yangfan He, Kangqi Li, Haonian Ji, Zihao Zhao, Haibo Tong, Lijuan Wang, Huaxiu Yao"
 venue: "under EMNLP review"
