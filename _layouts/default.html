@@ -49,7 +49,8 @@
         <h2>Research</h2>
         <p>I'm interested in AI alignment, optimization and machine learning.</p>
         <div class="project-list">
-          {% for post in site.posts %}
+          {% assign sorted_posts = site.posts | sort: 'display_order' %}
+          {% for post in sorted_posts %}
             {% if post.categories contains 'research' %}
             <article class="project-item">
               <div class="project-thumbnail-container">
@@ -79,7 +80,8 @@
       <section class="section">
         <h2>Intel</h2>
         <div class="project-list">
-          {% for post in site.posts %}
+          {% assign sorted_posts = site.posts | sort: 'display_order' %}
+          {% for post in sorted_posts %}
             {% if post.categories contains 'Intel' %}
             <article class="project-item">
               <div class="project-thumbnail-container">
@@ -112,7 +114,8 @@
       <section class="section">
         <h2>Other Projects</h2>
         <div class="project-list">
-          {% for post in site.posts %}
+          {% assign sorted_posts = site.posts | sort: 'display_order' %}
+          {% for post in sorted_posts %}
             {% if post.categories contains 'research' == false and post.categories contains 'Intel' == false %}
             <article class="project-item">
               <div class="project-thumbnail-container">

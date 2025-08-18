@@ -5,7 +5,8 @@ date:   2025-01-03 18:56:33 +00:00
 image: /images/MJ-bench.png
 categories: research
 authors: "Haibo Tong, Zhaoyang Wang, Zhaorun Chen, <strong>Haonian Ji</strong>, Shi Qiu, Siwei Han, Kexin Geng, Zhongkai Xue, Yiyang Zhou, Peng Xia, Mingyu Ding, Rafael Rafailov, Chelsea Finn, Huaxiu Yao"
-venue: "under NIPS review"
+venue: "under EMNLP review"
+display_order: 2
 arxiv: https://arxiv.org/abs/2502.01719
 code: https://github.com/aiming-lab/MJ-Video
 website: https://aiming-lab.github.io/MJ-VIDEO.github.io/
