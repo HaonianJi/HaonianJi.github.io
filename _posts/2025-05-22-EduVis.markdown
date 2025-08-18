@@ -10,9 +10,11 @@ display_order: 1
 arxiv: https://arxiv.org/abs/2505.16832
 code: https://github.com/aiming-lab/EduVisAgent
 website: https://arxiv.org/abs/2505.16832
-contributions:
-  - "构建了一个涵盖多领域结构化问题的数据集，结合多模态解决方案轨迹，用于评估模型在认知一致性、教学价值和可解释性方面的表现。"
-  - "设计并实现了一个多智能体生成框架，聚合视觉、教学及元认知专家模型，共同生成高质量的交互式教学网页内容。"
-  - "基准结果揭示了当前主流模型在多步视觉推理任务中的局限性，并为未来具备教学能力的可解释 AI 系统开发提供了评估和生成范式。"
+badge: "EMNLP 2025 • Under Review"
+status: under_review
+abstract_en: >-
+  EduVisBench evaluates reasoning-driven pedagogical visualization across domains, and EduVisAgent coordinates specialized agents (instructional planning, reasoning decomposition, metacognition, visualization) to produce cognitively aligned visual explanations.
+abstract_zh: >-
+  EduVisBench 面向跨领域的推理驱动教学可视化评测；EduVisAgent 协调教学规划、推理分解、元认知与可视化等专家代理，生成符合认知规律的教学可视化。
 ---
 While foundation models (FMs), such as diffusion models and large vision-language models (LVLMs), have been widely applied in educational contexts, their ability to generate pedagogically effective visual explanations remains limited. Most existing approaches focus primarily on textual reasoning, overlooking the critical role of structured and interpretable visualizations in supporting conceptual understanding. To better assess the visual reasoning capabilities of FMs in educational settings, we introduce EduVisBench, a multi-domain, multi-level benchmark. EduVisBench features diverse STEM problem sets requiring visually grounded solutions, along with a fine-grained evaluation rubric informed by pedagogical theory. Our empirical analysis reveals that existing models frequently struggle with the inherent challenge of decomposing complex reasoning and translating it into visual representations aligned with human cognitive processes. To address these limitations, we propose EduVisAgent, a multi-agent collaborative framework that coordinates specialized agents for instructional planning, reasoning decomposition, metacognitive prompting, and visualization design. Experimental results show that EduVisAgent substantially outperforms all baselines, achieving a 40.2% improvement and delivering more educationally aligned visualizations. 
