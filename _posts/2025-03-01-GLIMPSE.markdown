@@ -10,5 +10,9 @@ display_order: 4
 arxiv: 
 code: 
 website: 
+contributions:
+  - "开发了 GLIMPSE 基准测试，包含 3,269 个视频和 4,342 个高度以视觉为中心的问题，涵盖 11 个类别（如轨迹、时间问答、视频排序），旨在严格评估大型视觉语言模型 (LVLMs) 的视频感知和时间推理能力。"
+  - "通过细致的人工标注整理内容，并设计需要全视频上下文分析的问题，防止模型依赖单帧或文本捷径。"
+  - "突显了人类与当前 LVLMs（即使是性能最好的模型 Gemini 1.5 Pro）之间的关键差距，揭示了 LVLMs 在真正理解视频方面的局限性。"
 ---
 Existing video benchmarks often resemble image-based benchmarks, with questions like "What color is the woman’s dress in this video?" or "What’s the weather like in the video?" where models can answer using just a single frame or text, limiting the assessment of large vision language models (LVLMs) in terms of video perception and temporal reasoning abilities. To address this, we introduce GLIMPSE, a benchmark specifically designed to evaluate whether LVLMs truly understand video content. GLIMPSE includes 3,269 videos and over 4,342 highly visual-centric questions across 11 categories, such as Trajectory, Temporal QA, Forensics Detection, and Video Sorting, all meticulously curated and crafted by human annotators. Many of these questions require watching the entire video and reasoning based on video context to answer accurately, as they cannot be addressed using only a few frames or text information. Human testing on GLIMPSE achieves an average accuracy of 94.82%, but GLIMPSE poses significant challenges for existing LVLMs. Even the best-performing model, Gemini 1.5 Pro, reaches only 56.98% accuracy, indicating that current LVLMs still have a long way to go in truly understanding and interpreting video content.

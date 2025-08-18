@@ -10,5 +10,9 @@ display_order: 2
 arxiv: https://arxiv.org/abs/2502.01719
 code: https://github.com/aiming-lab/MJ-Video
 website: https://aiming-lab.github.io/MJ-VIDEO.github.io/
+contributions:
+  - "提出了 MJ-BENCH-VIDEO，一个大规模基准测试，用于评估视频生成质量的 5 个维度（对齐性、安全性、精细度、连贯性、偏见），包含 28 个细粒度标准。"
+  - "设计了 MJ-VIDEO，一个基于混合专家（MoE）的奖励模型，动态选择领域专家（如安全检测器、运动连贯性分析器）来判断文本-视频的对齐度和质量。"
+  - "与现有模型相比，偏好判断的总体改进率为 17.58%，细粒度改进率为 15.87%；引入 MJ-VIDEO 后，增强了视频生成中的对齐性能。"
 ---
 Recent advancements in video generation have significantly improved the ability to synthesize videos from text instructions. However, existing models still struggle with key challenges such as instruction misalignment, content hallucination, safety concerns, and bias. Addressing these limitations, we introduce MJ-BENCH-VIDEO, a large-scale video preference benchmark designed to evaluate video generation across five critical aspects: Alignment, Safety, Fineness, Coherence & Consistency, and Bias & Fairness. This benchmark incorporates 28 fine-grained criteria to provide a comprehensive evaluation of video preference. Building upon this dataset, we propose MJ-VIDEO, a Mixture-of-Experts (MoE)-based video reward model designed to deliver fine-grained reward. MJ-VIDEO can dynamically select relevant experts to accurately judge the preference based on the input text-video pair. This architecture enables more precise and adaptable preference judgments. Through extensive benchmarking on MJ-BENCH-VIDEO, we analyze the limitations of existing video reward models and demonstrate the superior performance of MJ-VIDEO in video preference assessment, achieving 17.58% and 15.87% improvements in overall and fine-grained preference judgments, respectively. Additionally, introducing MJ-VIDEO for preference tuning in video generation enhances the alignment performance.
