@@ -57,6 +57,7 @@
         <div class="publications">
           {% assign sorted_posts = site.posts | sort: 'display_order' %}
           {% for post in sorted_posts %}
+            {% if post.categories contains 'research' %}
             <article class="publication-item">
               <div class="publication-thumbnail">
                 <img src="{{ site.baseurl }}/{{ post.image }}" alt="{{ post.title }} thumbnail">
@@ -76,6 +77,67 @@
                 </div>
               </div>
             </article>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </section>
+
+      <section id="intel-projects">
+        <h2>Intel Projects</h2>
+        <div class="publications">
+          {% assign sorted_posts = site.posts | sort: 'display_order' %}
+          {% for post in sorted_posts %}
+            {% if post.categories contains 'Intel' %}
+            <article class="publication-item">
+              <div class="publication-thumbnail">
+                <img src="{{ site.baseurl }}/{{ post.image }}" alt="{{ post.title }} thumbnail">
+              </div>
+              <div class="publication-details">
+                <h3 class="publication-title">{{ post.title }}</h3>
+                <p class="authors">{{ post.authors }}</p>
+                <p class="venue">In <em>{{ post.venue }}</em></p>
+                {% if post.abstract %}
+                <p class="abstract">{{ post.abstract }}</p>
+                {% endif %}
+                <div class="publication-links">
+                  {% if post.pdf %}<a href="{{ post.pdf }}" class="btn-link">PDF</a>{% endif %}
+                  {% if post.code %}<a href="{{ post.code }}" class="btn-link">Code</a>{% endif %}
+                  {% if post.website %}<a href="{{ post.website }}" class="btn-link">Website</a>{% endif %}
+                  {% if post.slides %}<a href="{{ post.slides }}" class="btn-link">Slides</a>{% endif %}
+                </div>
+              </div>
+            </article>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </section>
+
+      <section id="other-projects">
+        <h2>Other Projects</h2>
+        <div class="publications">
+          {% assign sorted_posts = site.posts | sort: 'display_order' %}
+          {% for post in sorted_posts %}
+            {% if post.categories contains 'research' == false and post.categories contains 'Intel' == false %}
+            <article class="publication-item">
+              <div class="publication-thumbnail">
+                <img src="{{ site.baseurl }}/{{ post.image }}" alt="{{ post.title }} thumbnail">
+              </div>
+              <div class="publication-details">
+                <h3 class="publication-title">{{ post.title }}</h3>
+                <p class="authors">{{ post.authors }}</p>
+                <p class="venue">In <em>{{ post.venue }}</em></p>
+                {% if post.abstract %}
+                <p class="abstract">{{ post.abstract }}</p>
+                {% endif %}
+                <div class="publication-links">
+                  {% if post.pdf %}<a href="{{ post.pdf }}" class="btn-link">PDF</a>{% endif %}
+                  {% if post.code %}<a href="{{ post.code }}" class="btn-link">Code</a>{% endif %}
+                  {% if post.website %}<a href="{{ post.website }}" class="btn-link">Website</a>{% endif %}
+                  {% if post.slides %}<a href="{{ post.slides }}" class="btn-link">Slides</a>{% endif %}
+                </div>
+              </div>
+            </article>
+            {% endif %}
           {% endfor %}
         </div>
       </section>
