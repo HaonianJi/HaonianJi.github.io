@@ -63,19 +63,18 @@ body {
   margin-top: 40px;
 }
 
-/* Reverted to traditional academic project style */
 .project-item {
   display: flex;
   align-items: flex-start;
   gap: 1.5rem;
   margin-bottom: 2rem;
   padding-bottom: 2rem;
-  border-bottom: 1px solid #eee; /* Simple separator */
+  border-bottom: 1px solid #eee;
 }
 
-.project-item:last-child {
-  border-bottom: none;
-  margin-bottom: 0;
+.project-item:hover {
+  transform: none; /* Disable hover effect */
+  box-shadow: none;
 }
 
 .project-thumbnail-container {
@@ -100,9 +99,10 @@ body {
 }
 
 .project-links a {
-  margin-right: 10px;
+  margin-right: 1rem;
   color: #007bff;
   text-decoration: none;
+  font-weight: 500;
 }
 
 .project-links a:hover {
@@ -111,9 +111,9 @@ body {
 
 .project-authors,
 .project-venue {
-  font-size: 0.9rem;
-  color: #666;
-  margin-bottom: 0.5rem;
+  font-size: 0.85rem; // Slightly smaller
+  color: #555;
+  margin-bottom: 0.75rem;
 }
 
 // Footer
