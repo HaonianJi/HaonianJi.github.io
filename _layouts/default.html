@@ -1,54 +1,54 @@
-<!DOCTYPE HTML>
-<html lang="en">
-
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ site.title | default: "Haonian Ji" }}</title>
+  <link rel="stylesheet" href="{{ '/assets/css/main.scss' | relative_url }}">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-E00L9PT3V9"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-E00L9PT3V9');
   </script>
-  <title> Haonian Ji </title>
-
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-
-  <meta name="author" content=" Haonian Ji " />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/assets/css/main.css" />
-  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
-  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-
 </head>
 
 <body>
-  <div class="container">
-    <header class="intro-section">
-      <div class="intro-text">
-        <h1>Haonian Ji</h1>
-        <p>I am an undergraduate student majoring in <strong>Artificial Intelligence</strong> at the <a href="https://scai.swjtu.edu.cn/">School of Computer and Artificial Intelligence</a>, Southwest Jiaotong University. My advisor is <a href="https://www.researchgate.net/profile/Hongmei-Chen-13">Hongmei Chen</a>.</p>
-        <p>From 2022 to 2025, I studied at at the <a href="https://scai.swjtu.edu.cn/">School of Computer and Artificial Intelligence</a>, Southwest Jiaotong University. I am conducting research on <strong>evolutionary algorithms</strong> and currently have a paper under review for publication. As the team leader, I am participating in the <strong>2024 National Undergraduate Innovation and Entrepreneurship Training Program</strong> under the supervision of <a href="https://www.psy.pku.edu.cn/szdw/qzjy/fjs/mxz/index.htm">Prof. Xiangzhi Meng</a> from Peking University and <a href="https://faculty.swjtu.edu.cn/chujielei/zh_CN/index.htm/"> Prof. Jielei Chu</a> from Southwest Jiaotong University. Our project, titled <a href="http://jwc.swjtu.edu.cn/download/ueditor/jsp/upload/file/20241209/1733726320827017223.xlsx"><em>Assessment of Reading Ability and Early Screening of Dyslexia Based on Large Models</em></a> has been rated as a <strong>national-level project</strong> and has resulted in a related patent (currently under review).</p>
-        <p>During the 2024-2025 period, I am engaged in a remote research <strong>internship</strong> at the <strong> <a href="https://www.huaxiuyao.io/aiming-lab/">AIMING Lab</a>, University of North Carolina at Chapel Hill</strong>, under the supervision of <a href="https://www.huaxiuyao.io/"> Prof. Huaxiu Yao</a>, focusing on <strong>AI alignment</strong>. I am contributing to multiple projects, with two co-authored papers (<a href="https://aiming-lab.github.io/MJ-VIDEO.github.io/"><em>MJ-Video</em></a> and <em>GLIMPSE</em>) currently under review.</p>
-        <p>Previously, during my sophomore year, I interned at <strong>CIDI</strong>, an intelligent driving company, where I conducted research on the role of large models in autonomous driving under the mentorship of <a href="https://billchan226.github.io/">Dr. Zhaorun Chen</a> from the University of Chicago.</p>
-        <p class="social-links">
-          <a target="_blank" href="mailto:2022111346@my.swjtu.edu.cn">Email</a> &nbsp;/&nbsp;
-          <a href="https://github.com/HaonianJi">GitHub</a> &nbsp;/&nbsp;
-          <a href="https://openreview.net/profile?id=~Haonian_Ji1">OpenReview</a>
+  <div class="wrapper">
+    <aside class="sidebar">
+      <header>
+        <img src="images/circle_bw_crop.jpg" class="avatar" alt="profile picture">
+        <h1 class="name">Haonian Ji (纪浩南)</h1>
+        <p class="title">Undergraduate Student at SWJTU</p>
+        <p class="bio">I am an undergraduate student majoring in Artificial Intelligence, focusing on AI alignment and evolutionary algorithms.</p>
+        <div class="social-links">
+          <a href="mailto:2022111346@my.swjtu.edu.cn" class="social-link" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          <a href="https://github.com/HaonianJi" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://openreview.net/profile?id=~Haonian_Ji1" class="social-link" aria-label="OpenReview"><i class="fas fa-graduation-cap"></i></a>
+        </div>
+      </header>
+    </aside>
+    <main class="main-content">
+      <section id="about">
+        <h2>About Me</h2>
+        <p>
+          I am an undergraduate student majoring in <strong>Artificial Intelligence</strong> at the <a href="https://scai.swjtu.edu.cn/">School of Computer and Artificial Intelligence</a>, Southwest Jiaotong University. My advisor is <a href="https://www.researchgate.net/profile/Hongmei-Chen-13">Hongmei Chen</a>.
         </p>
-      </div>
-      <div class="profile-pic-container">
-        <img class="profile-pic" alt="profile photo" src="images/circle_bw_crop.jpg">
-      </div>
-    </header>
+        <p>
+          During the 2024-2025 period, I am engaged in a remote research <strong>internship</strong> at the <strong> <a href="https://www.huaxiuyao.io/aiming-lab/">AIMING Lab</a>, University of North Carolina at Chapel Hill</strong>, under the supervision of <a href="https://www.huaxiuyao.io/"> Prof. Huaxiu Yao</a>, focusing on <strong>AI alignment</strong>. I am contributing to multiple projects, with two co-authored papers (<a href="https://aiming-lab.github.io/MJ-VIDEO.github.io/"><em>MJ-Video</em></a> and <em>GLIMPSE</em>) currently under review.
+        </p>
+      </section>
 
       <section id="news">
         <h2>News</h2>
         <ul>
-          <li><strong>Oct 2022</strong> - One paper accepted to CoRL 2022.</li>
-          <li><strong>Jul 2022</strong> - One paper accepted to ECCV 2022.</li>
+          <li><strong>Dec 2024</strong> - Our project on dyslexia screening has been rated as a national-level project.</li>
+          <li><strong>2024-2025</strong> - Started remote internship at AIMING Lab, UNC Chapel Hill.</li>
         </ul>
       </section>
 
@@ -145,21 +145,8 @@
       <footer>
         <p>&copy; {{ "now" | date: "%Y" }} Haonian Ji. All rights reserved.</p>
       </footer>
-                </p>
-                {{ post.excerpt }}
-              </div>
-            </article>
-            {% endif %}
-          {% endfor %}
-        </div>
-      </section>
     </main>
-
-    <footer class="footer">
-      <p>Design and source code from <a href="https://jonbarron.info">Jon Barron's website</a> and <a href="https://github.com/leonidk/leonidk.github.io">leonidk's website</a>.</p>
-    </footer>
   </div>
 </body>
-
 </html>
 
