@@ -85,6 +85,7 @@
         </table>
         <div class="projects-grid">
           {% for post in site.posts %}
+          <a href="{{ post.url | prepend: site.baseurl }}" class="project-card-link">
           <div class="project-card">
             <div class="project-image">
               <img src="{{post.image}}" alt="project image"/>
@@ -116,6 +117,7 @@
               </div>
             </div>
           </div>
+          </a>
           {% endfor %}
         </div>
 

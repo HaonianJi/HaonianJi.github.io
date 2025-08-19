@@ -137,6 +137,12 @@ span.highlight {
   box-shadow: 0 8px 16px rgba(0,0,0,0.1);
 }
 
+a.project-card-link,
+a.project-card-link:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
 .project-card .project-image img {
   width: 100%;
   height: auto;
