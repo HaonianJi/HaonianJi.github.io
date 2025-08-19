@@ -112,6 +112,70 @@ span.highlight {
   background-color: #ffffd0;
 }
 
+/********************/
+/* PROJECTS GRID */
+/********************/
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.project-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.project-card .project-image img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.project-card .project-info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.project-card .project-info h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.project-card .project-authors {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.project-card .project-venue {
+  font-size: 14px;
+  color: #666;
+  flex-grow: 1;
+  margin-bottom: 15px;
+}
+
+.project-card .project-links a {
+  margin-right: 15px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+
 // Settled on moving the import of syntax highlighting to the bottom of the CSS
 // ... Otherwise it really bloats up the top of the CSS file and makes it difficult to find the start
 //@import "highlights";
