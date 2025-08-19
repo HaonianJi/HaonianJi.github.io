@@ -156,9 +156,7 @@
         </table>
         <div class="projects-grid">
           {% for post in site.posts %}
-          {% assign is_research = post.categories | where: "research" | size %}
-          {% assign is_intel = post.categories | where: "Intel" | size %}
-          {% if is_research == 0 and is_intel == 0 %}
+          {% unless post.categories contains 'research' or post.categories contains 'Intel' %}
           <div class="project-card">
             <div class="project-image">
               <img src="{{post.image}}" alt="project image" />
