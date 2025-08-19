@@ -12,15 +12,24 @@
 /**************/
 /* BASE RULES */
 /**************/
+
+body {
+  color: #333;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+}
+
 a {
-  color: #1772d0;
+  color: #007bff;
   text-decoration: none;
+  transition: color 0.2s ease-in-out;
 }
 
 a:focus,
 a:hover {
-  color: #f09228;
-  text-decoration: none;
+  color: #0056b3;
+  text-decoration: underline;
 }
 
 body,
@@ -29,30 +38,34 @@ th,
 tr,
 p,
 a {
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
   font-display: auto;
+}
+
+img {
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
 }
 
 strong {
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 14px;
+  font-family: 'Inter', sans-serif;
   font-display: auto;
+  font-weight: 700;
 }
 
 h2 {
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 22px;
+  font-family: 'Inter', sans-serif;
+  font-size: 24px;
   font-display: auto;
-  font-weight: normal;
+  font-weight: 700;
   padding: 0px;
-  margin: 0px;
-  display:inline; 
+  margin: 2em 0 1em 0;
 }
 
 h3 {
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
   font-weight: 700;
   font-display: auto;
   padding: 0px;
@@ -61,7 +74,7 @@ h3 {
 }
 
 h1 {
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 32px;
   font-weight: normal;
   font-display: auto;
