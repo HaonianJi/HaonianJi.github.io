@@ -34,8 +34,6 @@
         <a href="#other-projects">Other Projects</a>
         <a href="#internships">Internships</a>
         <a href="#volunteering">Volunteering</a>
-        <a href="#education">Education</a>
-        <a href="#contact">Contact</a>
       </nav>
       <div class="social-links">
         <a href="mailto:2022111346@my.swjtu.edu.cn" aria-label="Email"><i class="fas fa-envelope"></i></a>
@@ -72,7 +70,6 @@
                 <img src="{{ site.baseurl }}/{{ post.image }}" alt="{{ post.title }} thumbnail">
               </div>
               <div class="publication-details">
-                {% if post.badge %}<span class="badge">{{ post.badge }}</span>{% endif %}
                 <h3 class="publication-title">{{ post.title }}</h3>
                 <p class="authors">{{ post.authors }}</p>
                 <p class="venue">{{ post.venue }}</p>
@@ -82,6 +79,13 @@
                   {% if post.website %}<a href="{{ post.website }}" class="btn-link">Website</a>{% endif %}
                   {% if post.slides %}<a href="{{ post.slides }}" class="btn-link">Slides</a>{% endif %}
                 </div>
+                {% if post.details %}
+                <ul class="publication-summary">
+                  {% for item in post.details %}
+                    <li>{{ item }}</li>
+                  {% endfor %}
+                </ul>
+                {% endif %}
               </div>
             </article>
           {% endfor %}
@@ -109,6 +113,13 @@
                   {% if post.website %}<a href="{{ post.website }}" class="btn-link">Website</a>{% endif %}
                   {% if post.slides %}<a href="{{ post.slides }}" class="btn-link">Slides</a>{% endif %}
                 </div>
+                {% if post.details %}
+                <ul class="publication-summary">
+                  {% for item in post.details %}
+                    <li>{{ item }}</li>
+                  {% endfor %}
+                </ul>
+                {% endif %}
               </div>
             </article>
           {% endfor %}
@@ -142,19 +153,19 @@
                   {% if post.website %}<a href="{{ post.website }}" class="btn-link">Website</a>{% endif %}
                   {% if post.slides %}<a href="{{ post.slides }}" class="btn-link">Slides</a>{% endif %}
                 </div>
+                {% if post.details %}
+                <ul class="publication-summary">
+                  {% for item in post.details %}
+                    <li>{{ item }}</li>
+                  {% endfor %}
+                </ul>
+                {% endif %}
               </div>
             </article>
           {% endfor %}
         </div>
       </section>
       {% endif %}
-
-      <section id="education">
-        <h2>Education</h2>
-        <p><strong>Southwest Jiaotong University (SWJTU)</strong>, School of Computer and Artificial Intelligence, Chengdu, China</p>
-        <p>B.Sc. in Artificial Intelligence (09/2022 – 06/2026)</p>
-        <p class="note">Core courses: Advanced Programming, Data Structures & Algorithms, Operating Systems, Digital Signal Processing, Computer Networks, Statistical Machine Learning, Deep Learning, AI Integrated Design</p>
-      </section>
 
       <section id="internships">
         <h2>Internships</h2>
@@ -195,13 +206,6 @@
             <li>Combined SRTP project with AI popularization at the welfare institute, collecting voice data while helping children with dyslexia screening.</li>
           </ul>
         </div>
-      </section>
-
-      <section id="contact">
-        <h2>Contact</h2>
-        <p><strong>Phone:</strong> (+86) 166-5713-3698</p>
-        <p><strong>Email:</strong> <a href="mailto:2022111346@my.swjtu.edu.cn">2022111346@my.swjtu.edu.cn</a></p>
-        <p><strong>Homepage:</strong> <a href="https://haonianji.github.io/">https://haonianji.github.io/</a></p>
       </section>
 
       <footer>

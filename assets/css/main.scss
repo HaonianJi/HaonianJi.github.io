@@ -155,17 +155,6 @@ body {
   flex: 1;
 }
 
-.badge {
-  display: inline-block;
-  background: #eef5ff;
-  color: #1a5fcc;
-  border: 1px solid $color-border;
-  padding: 2px 8px;
-  border-radius: 999px;
-  font-size: 0.8em;
-  margin-bottom: 6px;
-}
-
 .publication-title {
   font-family: $font-primary;
   font-size: 1.2em;
@@ -204,6 +193,19 @@ body {
       color: #fff;
       text-decoration: none;
     }
+  }
+}
+
+.publication-summary {
+  margin-top: 15px;
+  padding-left: 20px;
+  list-style-type: disc;
+
+  li {
+    font-size: 0.95em;
+    color: #444;
+    margin-bottom: 8px;
+    line-height: 1.6;
   }
 }
 

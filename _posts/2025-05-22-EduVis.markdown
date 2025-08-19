@@ -10,11 +10,9 @@ display_order: 1
 arxiv: https://arxiv.org/abs/2505.16832
 code: https://github.com/aiming-lab/EduVisAgent
 website: https://arxiv.org/abs/2505.16832
-badge: "EMNLP 2025 • Under Review"
-status: under_review
-abstract_en: >-
-  EduVisBench evaluates reasoning-driven pedagogical visualization across domains, and EduVisAgent coordinates specialized agents (instructional planning, reasoning decomposition, metacognition, visualization) to produce cognitively aligned visual explanations.
-abstract_zh: >-
-  EduVisBench 面向跨领域的推理驱动教学可视化评测；EduVisAgent 协调教学规划、推理分解、元认知与可视化等专家代理，生成符合认知规律的教学可视化。
+details:
+  - Built a dataset covering multi-domain structured problems with multi-modal solution trajectories to evaluate models on cognitive consistency, pedagogical value, and interpretability.
+  - Designed and implemented a multi-agent generation framework that aggregates visual, pedagogical, and metacognitive expert models to jointly generate high-quality interactive educational web content.
+  - Benchmark results revealed the limitations of current mainstream models in multi-step visual reasoning tasks and provided an evaluation and generation paradigm for the future development of interpretable AI systems with teaching capabilities.
 ---
 While foundation models (FMs), such as diffusion models and large vision-language models (LVLMs), have been widely applied in educational contexts, their ability to generate pedagogically effective visual explanations remains limited. Most existing approaches focus primarily on textual reasoning, overlooking the critical role of structured and interpretable visualizations in supporting conceptual understanding. To better assess the visual reasoning capabilities of FMs in educational settings, we introduce EduVisBench, a multi-domain, multi-level benchmark. EduVisBench features diverse STEM problem sets requiring visually grounded solutions, along with a fine-grained evaluation rubric informed by pedagogical theory. Our empirical analysis reveals that existing models frequently struggle with the inherent challenge of decomposing complex reasoning and translating it into visual representations aligned with human cognitive processes. To address these limitations, we propose EduVisAgent, a multi-agent collaborative framework that coordinates specialized agents for instructional planning, reasoning decomposition, metacognitive prompting, and visualization design. Experimental results show that EduVisAgent substantially outperforms all baselines, achieving a 40.2% improvement and delivering more educationally aligned visualizations. 

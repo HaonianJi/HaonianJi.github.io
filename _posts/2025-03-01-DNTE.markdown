@@ -10,11 +10,9 @@ display_order: 3
 arxiv: 
 code: 
 website: 
-badge: "IJCRS 2025 • Accepted"
-status: accepted
-abstract_en: >-
-  We propose DNTE, a Dynamic-Niche-Based Two-Stage Evolution approach for MMOPs that enhances both objective and decision space diversity by restricting domination ranges and leveraging niche-driven differential evolution.
-abstract_zh: >-
-  我们提出两阶段动态 Niche 进化算法 DNTE，通过限制帕累托支配范围并结合 Niche 驱动的差分进化，同时提升目标空间与决策空间的多样性，用于求解多模态多目标优化问题。
+details:
+  - Proposed the Dynamic-Niche-Based Two-Stage Evolution (DNTE) approach to address suboptimal diversity in the decision space for Multimodal Multiobjective Optimization Problems (MMOPs).
+  - Utilized dynamic niche in two stages: first to restrict the dominance range of Pareto domination, and second to refine the decision space distribution.
+  - Demonstrated superior performance compared to other evolutionary algorithms on MMF and MMMOP benchmark functions.
 ---
 In solving multimodal multiobjective optimization problems (MMOPs), changes in objective and decision space need to be considered. However, many multimodal multiobjective evolutionary algorithms (MMOEAs) tend to prioritize diversity in the objective space during the optimization process, often leading to suboptimal diversity and distribution in the decision space. This study proposes the Dynamic-Niche-Based Two-Stage Evolution (DNTE) approach to address this issue. DNTE employs differential evolutionary strategies in two stages, utilizing dynamic niche to enhance solution viability and optimize decision space distribution at different phases. In the first stage, dynamic niche is used to restrict the dominance range of Pareto domination. In contrast, in the second stage, it is integrated with differential evolution to refine the distribution of the decision space. The combination of DNTE with DN-NSGA-II enhances the capability of solving MMOPs and demonstrates superior performance compared to other evolutionary algorithms on MMF and MMMOP benchmark functions
