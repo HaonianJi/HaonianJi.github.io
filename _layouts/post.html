@@ -1,3 +1,39 @@
 ---
 layout: default
 ---
+
+<article class="post">
+  <h1>{{ page.title }}</h1>
+  
+  <div class="entry">
+    {{ content }}
+  </div>
+
+  <div class="date">
+    Written on {{ page.date | date: "%B %e, %Y" }}
+  </div>
+
+  {% if page.authors %}
+  <div class="authors">
+    <strong>Authors:</strong> {{ page.authors }}
+  </div>
+  {% endif %}
+
+  {% if page.venue %}
+  <div class="venue">
+    <strong>Venue:</strong> {{ page.venue }}
+  </div>
+  {% endif %}
+
+  <div class="post-links">
+    {% if page.arxiv %}
+    <a href="{{ page.arxiv }}" target="_blank">arXiv</a>
+    {% endif %}
+    {% if page.code %}
+    <a href="{{ page.code }}" target="_blank">Code</a>
+    {% endif %}
+    {% if page.website %}
+    <a href="{{ page.website }}" target="_blank">Website</a>
+    {% endif %}
+  </div>
+</article>
