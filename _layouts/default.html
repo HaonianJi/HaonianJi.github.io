@@ -83,10 +83,11 @@
           </tr>
         </table>
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-          {% assign sorted_posts = site.posts | sort: 'date' %}
-          {% for post in sorted_posts %}
+          {% assign custom_order = "EduVisBench,MJ-Video,Two-stage multi-modal,GLIMPSE" | split: "," %}
+          {% for title_key in custom_order %}
+          {% for post in site.posts %}
           {% for cat in post.categories %}
-          {% if cat == 'research' %}
+          {% if cat == 'research' and post.title contains title_key %}
           <tr>
             <td style="padding:2.5%;width:25%;vertical-align:middle;min-width:120px">
               <img src="{{post.image}}" alt="project image" style="width:auto; height:auto; max-width:100%;" />
@@ -125,6 +126,7 @@
             </td>
           </tr>
           {% endif %}
+          {% endfor %}
           {% endfor %}
           {% endfor %}
         </table>
