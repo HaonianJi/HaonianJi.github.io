@@ -58,7 +58,7 @@
       <section class="section submissions-section" id="submissions">
         <div class="section-heading"><div><div class="section-kicker">What I’m working on</div><h2>Current research</h2></div><p>Ongoing work shown with official paper or repository visuals when publicly available.</p></div>
         <div class="publication-list current-list">
-          {% assign current_order = "MetaClaw,ClawForge,CounterGraft,AutoResearchClaw,VisualClaw,LatentSearch" | split: "," %}
+          {% assign current_order = "MetaClaw,ClawForge,AutoResearchClaw,VisualClaw" | split: "," %}
           {% for title_key in current_order %}{% for post in site.posts %}{% for cat in post.categories %}{% if cat == 'current' and post.title contains title_key %}
           <article class="publication-card current-work">
             <div class="paper-media"><img src="{{ post.image }}?v=20261013-3" alt="Research visual for {{ post.title }}" loading="lazy"></div>
