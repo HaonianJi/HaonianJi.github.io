@@ -44,7 +44,7 @@
             </p>
         
             <p>
-                Before starting my Ph.D., I was a remote research intern at the <a href="https://www.huaxiuyao.io/aiming-lab/">AIMING Lab</a> at UNC-Chapel Hill, where I worked on AI alignment and multimodal foundation models. My recent work includes <a href="https://arxiv.org/abs/2505.16832"><em>EduVisAgent</em></a>, published at ICLR 2026, and <a href="https://aiming-lab.github.io/MJ-VIDEO.github.io/"><em>MJ-Video</em></a>.
+                Before starting my Ph.D., I was a remote research intern at the <a href="https://www.huaxiuyao.io/aiming-lab/">AIMING Lab</a> at UNC-Chapel Hill, where I worked on AI alignment and multimodal foundation models. My recent work spans self-evolving agents, multimodal reasoning, agent evaluation, and AI for scientific and educational workflows.
             </p>
         
             <p>
@@ -67,24 +67,26 @@
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
           <tr>
             <td style="padding:2.5%;width:100%;vertical-align:middle">
-              <h2>Research</h2>
+              <h2>Selected Publications</h2>
               <p>
-                I'm interested in AI alignment, optimization and machine learning.
+                My research focuses on self-evolving AI agents, multimodal reasoning, AI alignment, and optimization.
               </p>
             </td>
           </tr>
         </table>
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-          {% assign custom_order = "EduVisBench,MJ-Video,Two-stage multi-modal,GLIMPSE" | split: "," %}
+          {% assign custom_order = "Agent0-VL,Paper2Figure,EduVisBench,ClawArena,MJ-Video,GLIMPSE,Two-stage multi-modal" | split: "," %}
           {% for title_key in custom_order %}
           {% for post in site.posts %}
           {% for cat in post.categories %}
           {% if cat == 'research' and post.title contains title_key %}
           <tr>
+            {% if post.image %}
             <td style="padding:2.5%;width:25%;vertical-align:middle;min-width:120px">
               <img src="{{post.image}}" alt="project image" style="width:auto; height:auto; max-width:100%;" />
             </td>
-            <td style="padding:2.5%;width:75%;vertical-align:middle">
+            {% endif %}
+            <td style="padding:2.5%;{% if post.image %}width:75%;{% else %}width:100%;{% endif %}vertical-align:middle">
               <h3>{{post.title}}</h3>
               <br>
               {{post.authors}}
@@ -121,6 +123,22 @@
           {% endfor %}
           {% endfor %}
           {% endfor %}
+        </table>
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          <tr>
+            <td style="padding:2.5%;width:100%;vertical-align:middle">
+              <h2>Recent Submissions</h2>
+              <p>Ongoing work currently under review or recently submitted:</p>
+              <ul>
+                <li><strong>MetaClaw: Just Talk — An Agent That Meta-Learns and Evolves in the Wild</strong> — under review at ICLR 2027</li>
+                <li><strong>ClawForge: Generating Executable Interactive Benchmarks for Command-Line Agents</strong> — under review at ICLR 2027</li>
+                <li><strong>CounterGraft: Counterfactual Execution for Agent Self-Improvement</strong> — under review at ICLR 2027</li>
+                <li><strong>AutoResearchClaw: Self-Reinforcing Autonomous Research with Human-AI Collaboration</strong> — under review at ICLR 2027</li>
+                <li><strong>VisualClaw: A Real-Time, Personalized Agent for the Physical World</strong> — under review at ICLR 2027</li>
+                <li><strong>LatentSearch: Empowering Multimodal Agents with Latent Reasoning for Visual Search</strong> — submitted to ARR, October 2026 cycle</li>
+              </ul>
+            </td>
+          </tr>
         </table>
         <br>
         <br>

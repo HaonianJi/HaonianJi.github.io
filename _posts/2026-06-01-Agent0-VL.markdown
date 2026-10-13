@@ -1,0 +1,12 @@
+---
+layout: post
+title: "Agent0-VL: Exploring Self-Evolving Agent for Tool-Integrated Vision-Language Reasoning"
+date: 2026-06-01 00:00:00 +00:00
+categories: research
+authors: "Jiaqi Liu, Kaiwen Xiong, Peng Xia, Yiyang Zhou, <strong>Haonian Ji</strong>, Lu Feng, Siwei Han, Mingyu Ding, Huaxiu Yao"
+venue: "ICML 2026 Oral"
+arxiv: https://arxiv.org/abs/2511.19900
+code: https://github.com/aiming-lab/Agent0
+website: https://proceedings.mlr.press/v306/liu26fa.html
+---
+Agent0-VL is a self-evolving vision-language agent that integrates tool use into reasoning, self-evaluation, and self-repair. Without human annotations or external reward models, it continually improves its evidence-grounded multimodal reasoning and achieves strong results on geometric problem solving and visual scientific analysis.
