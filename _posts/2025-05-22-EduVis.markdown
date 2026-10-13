@@ -2,7 +2,7 @@
 layout: post
 title:  "From EduVisBench to EduVisAgent: A Benchmark and Multi-Agent Framework for Reasoning-Driven Pedagogical Visualization"
 date:   2025-05-22 16:02:18 +00:00
-image: /images/EduVisBench.png
+image: /images/papers/eduvis.webp
 categories: research
 authors: "<strong>Haonian Ji</strong>, Shi Qiu, Siyang Xin, Siwei Han, Zhaorun Chen, Hongyi Wang, Dake Zhang, Huaxiu Yao"
 venue: "ICLR 2026"

@@ -3,6 +3,7 @@ layout: post
 title: "Paper2Figure: A Multi-Agent Collaborative System for Figure Generation Towards Academic Research Paper"
 date: 2026-04-01 00:00:00 +00:00
 categories: research
+image: /images/papers/paper2figure.webp
 authors: "<strong>Haonian Ji*</strong>, Siwei Han*, Siyang Xin, Juanquan Shi, Shi Qiu, Xinyu Ye, Peng Xia, Jiaqi Liu, Zhaorun Chen, Yiyang Zhou, Linjie Li, Lijuan Wang, Huaxiu Yao (* equal contribution)"
 venue: "CVPR 2026"
 role: "Co-first author"

@@ -2,7 +2,7 @@
 layout: post
 title:  "GLIMPSE: Do Large Vision-Language Models Truly Think With Videos or Just Glimpse at Them?"
 date:   2025-03-01 05:50:27 +00:00
-image: /images/glimpse.png
+image: /images/papers/glimpse.webp
 categories: research
 authors: "Yiyang Zhou, Linjie Li, Shi Qiu, Zhengyuan Yang, Yuyang Zhao, Siwei Han, Yangfan He, Kangqi Li, <strong>Haonian Ji</strong>, Zihao Zhao, Haibo Tong, Lijuan Wang, Huaxiu Yao"
 venue: "EMNLP 2025 Oral"

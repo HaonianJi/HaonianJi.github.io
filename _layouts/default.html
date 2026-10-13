@@ -56,14 +56,19 @@
         </div>
       </section>
       <section class="section submissions-section" id="submissions">
-        <div class="section-heading"><div><div class="section-kicker">What I’m working on</div><h2>Recent submissions</h2></div><p>Ongoing research, listed separately from accepted publications.</p></div>
-        <div class="submission-grid">
-          <article><span>Under review · ICLR 2027</span><h3>MetaClaw</h3><p>Just Talk — An Agent That Meta-Learns and Evolves in the Wild</p></article>
-          <article><span>Under review · ICLR 2027</span><h3>ClawForge</h3><p>Generating Executable Interactive Benchmarks for Command-Line Agents</p></article>
-          <article><span>Under review · ICLR 2027</span><h3>CounterGraft</h3><p>Counterfactual Execution for Agent Self-Improvement</p></article>
-          <article><span>Under review · ICLR 2027</span><h3>AutoResearchClaw</h3><p>Self-Reinforcing Autonomous Research with Human-AI Collaboration</p></article>
-          <article><span>Under review · ICLR 2027</span><h3>VisualClaw</h3><p>A Real-Time, Personalized Agent for the Physical World</p></article>
-          <article><span>Submitted · ARR October 2026</span><h3>LatentSearch</h3><p>Empowering Multimodal Agents with Latent Reasoning for Visual Search</p></article>
+        <div class="section-heading"><div><div class="section-kicker">What I’m working on</div><h2>Current research</h2></div><p>Ongoing work shown with official paper or repository visuals when publicly available.</p></div>
+        <div class="publication-list current-list">
+          {% assign current_order = "MetaClaw,ClawForge,CounterGraft,AutoResearchClaw,VisualClaw,LatentSearch" | split: "," %}
+          {% for title_key in current_order %}{% for post in site.posts %}{% for cat in post.categories %}{% if cat == 'current' and post.title contains title_key %}
+          <article class="publication-card current-work">
+            <div class="paper-media"><img src="{{ post.image }}" alt="Research visual for {{ post.title }}" loading="lazy"></div>
+            <div class="paper-content">
+              <div class="paper-meta"><span class="venue-badge status-badge">{{ post.venue }}</span></div>
+              <h3>{{ post.title }}</h3>{% if post.authors %}<p class="paper-authors">{{ post.authors }}</p>{% endif %}<div class="paper-abstract">{{ post.excerpt }}</div>
+              <div class="paper-links">{% if post.arxiv %}<a href="{{ post.arxiv }}">arXiv</a>{% endif %}{% if post.code %}<a href="{{ post.code }}">Code</a>{% endif %}</div>
+            </div>
+          </article>
+          {% endif %}{% endfor %}{% endfor %}{% endfor %}
         </div>
       </section>
     </main>

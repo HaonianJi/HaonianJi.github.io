@@ -3,6 +3,7 @@ layout: post
 title: "Agent0-VL: Exploring Self-Evolving Agent for Tool-Integrated Vision-Language Reasoning"
 date: 2026-06-01 00:00:00 +00:00
 categories: research
+image: /images/papers/agent0-vl.webp
 authors: "Jiaqi Liu, Kaiwen Xiong, Peng Xia, Yiyang Zhou, <strong>Haonian Ji</strong>, Lu Feng, Siwei Han, Mingyu Ding, Huaxiu Yao"
 venue: "ICML 2026 Oral"
 visual: "Agent0-VL"
