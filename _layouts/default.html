@@ -45,7 +45,7 @@
           {% assign custom_order = "EduVisBench,ClawArena,Paper2Figure,Agent0-VL,MJ-Video,GLIMPSE,Two-stage multi-modal" | split: "," %}
           {% for title_key in custom_order %}{% for post in site.posts %}{% for cat in post.categories %}{% if cat == 'research' and post.title contains title_key %}
           <article class="publication-card{% if post.role %} lead-work{% endif %}">
-            <div class="paper-media">{% if post.image %}<img src="{{ post.image }}?v=20261013-4" alt="Preview for {{ post.title }}" loading="lazy">{% else %}<div class="paper-placeholder placeholder-{{ forloop.index | modulo: 3 }}" aria-hidden="true"><span>{{ post.visual | default: title_key }}</span></div>{% endif %}</div>
+            <div class="paper-media">{% if post.image %}<img src="{{ post.image }}?v=20261013-5" alt="Preview for {{ post.title }}" loading="lazy">{% else %}<div class="paper-placeholder placeholder-{{ forloop.index | modulo: 3 }}" aria-hidden="true"><span>{{ post.visual | default: title_key }}</span></div>{% endif %}</div>
             <div class="paper-content">
               <div class="paper-meta"><span class="venue-badge">{{ post.venue }}</span>{% if post.role %}<span class="role-badge">{{ post.role }}</span>{% endif %}</div>
               <h3>{{ post.title }}</h3><p class="paper-authors">{{ post.authors }}</p><div class="paper-abstract">{{ post.excerpt }}</div>
@@ -61,7 +61,7 @@
           {% assign current_order = "MetaClaw,ClawForge,AutoResearchClaw,VisualClaw" | split: "," %}
           {% for title_key in current_order %}{% for post in site.posts %}{% for cat in post.categories %}{% if cat == 'current' and post.title contains title_key %}
           <article class="publication-card current-work">
-            <div class="paper-media"><img src="{{ post.image }}?v=20261013-4" alt="Research visual for {{ post.title }}" loading="lazy"></div>
+            <div class="paper-media"><img src="{{ post.image }}?v=20261013-5" alt="Research visual for {{ post.title }}" loading="lazy"></div>
             <div class="paper-content">
               <div class="paper-meta"><span class="venue-badge status-badge">{{ post.venue }}</span></div>
               <h3>{{ post.title }}</h3>{% if post.authors %}<p class="paper-authors">{{ post.authors }}</p>{% endif %}<div class="paper-abstract">{{ post.excerpt }}</div>
