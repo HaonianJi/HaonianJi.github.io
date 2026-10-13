@@ -14,4 +14,10 @@
 .current-list .paper-media{background:#fff}
 @media(max-width:840px){.publication-card{grid-template-columns:230px 1fr}}
 @media(max-width:640px){.publication-card{grid-template-columns:1fr}.paper-media{width:100%;margin:0;border-width:0 0 1px;border-radius:0}}
+.publication-list{grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch}
+.publication-card{display:flex;min-width:0;min-height:0;flex-direction:column}
+.paper-media{width:100%;margin:0;border-width:0 0 1px;border-radius:0;background:#fff}
+.paper-content{display:flex;flex:1;flex-direction:column}
+.paper-links{margin-top:auto}
+@media(max-width:900px){.publication-list{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
