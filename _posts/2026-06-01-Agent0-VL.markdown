@@ -5,6 +5,7 @@ date: 2026-06-01 00:00:00 +00:00
 categories: research
 authors: "Jiaqi Liu, Kaiwen Xiong, Peng Xia, Yiyang Zhou, <strong>Haonian Ji</strong>, Lu Feng, Siwei Han, Mingyu Ding, Huaxiu Yao"
 venue: "ICML 2026 Oral"
+visual: "Agent0-VL"
 arxiv: https://arxiv.org/abs/2511.19900
 code: https://github.com/aiming-lab/Agent0
 website: https://proceedings.mlr.press/v306/liu26fa.html

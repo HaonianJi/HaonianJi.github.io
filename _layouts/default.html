@@ -1,294 +1,73 @@
-<!DOCTYPE HTML>
+<!doctype html>
 <html lang="en">
-
 <head>
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-E00L9PT3V9"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-E00L9PT3V9');
-  </script>
-  <title> Haonian Ji </title>
-
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-
-  <meta name="author" content=" Haonian Ji " />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-E00L9PT3V9');</script>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Haonian Ji">
+  <meta name="description" content="Haonian Ji is a Ph.D. student at UNC-Chapel Hill researching self-evolving agents, multimodal reasoning, AI alignment, and optimization.">
+  <title>Haonian Ji · AI Researcher</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ site.baseurl }}/style.css">
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
-  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-
 </head>
-
 <body>
-  <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-    <tr style="padding:0px">
-      <td style="padding:0px">
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-          <tr style="padding:0px">
-            <td style="padding:2.5%;width:60%;vertical-align:middle">
-              <h1>
-                Haonian Ji
-              </h1>
-              <p>I am a Ph.D. student in Computer Science at the <a href="https://cs.unc.edu/">University of North Carolina at Chapel Hill</a>, advised by <a href="https://www.huaxiuyao.io/">Prof. Huaxiu Yao</a>. My research interests include <strong>AI alignment, optimization, and machine learning</strong>.
-              </p>
-              <p>
-                I received my bachelor's degree in Artificial Intelligence from the <a href="https://scai.swjtu.edu.cn/">School of Computer and Artificial Intelligence</a>, Southwest Jiaotong University, in 2026. There, I worked on evolutionary optimization with <a href="https://www.researchgate.net/profile/Hongmei-Chen-13">Prof. Hongmei Chen</a> and led a national-level undergraduate innovation project on large-model-based reading assessment and early dyslexia screening.
-            </p>
-        
-            <p>
-                Before starting my Ph.D., I was a remote research intern at the <a href="https://www.huaxiuyao.io/aiming-lab/">AIMING Lab</a> at UNC-Chapel Hill, where I worked on AI alignment and multimodal foundation models. My recent work spans self-evolving agents, multimodal reasoning, agent evaluation, and AI for scientific and educational workflows.
-            </p>
-        
-            <p>
-                Previously, during my sophomore year, I interned at <strong>CIDI</strong>, an intelligent driving company, 
-                where I conducted research on the role of large models in autonomous driving under the mentorship of 
-                <a href="https://billchan226.github.io/">Dr. Zhaorun Chen</a> from the University of Chicago.
-            </p>
-              <p style="text-align:center">
-                <a href="mailto:haonianj@cs.unc.edu">Email</a> &nbsp;/&nbsp;
-                <a href="https://github.com/HaonianJi">GitHub</a> &nbsp;/&nbsp;
-                <a href="https://openreview.net/profile?id=~Haonian_Ji1">OpenReview</a> &nbsp;/&nbsp;
-              </p>
-            </td>
-            <td style="padding:2.5%;width:40%;max-width:40%">
-              <img style="width:100%;max-width:100%" alt="profile photo" src="images/circle_bw_crop.jpg">
-            </td>
-          </tr>
-        </table>
-
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-          <tr>
-            <td style="padding:2.5%;width:100%;vertical-align:middle">
-              <h2>Selected Publications</h2>
-              <p>
-                My research focuses on self-evolving AI agents, multimodal reasoning, AI alignment, and optimization.
-              </p>
-            </td>
-          </tr>
-        </table>
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-          {% assign custom_order = "Agent0-VL,Paper2Figure,EduVisBench,ClawArena,MJ-Video,GLIMPSE,Two-stage multi-modal" | split: "," %}
-          {% for title_key in custom_order %}
-          {% for post in site.posts %}
-          {% for cat in post.categories %}
-          {% if cat == 'research' and post.title contains title_key %}
-          <tr>
-            {% if post.image %}
-            <td style="padding:2.5%;width:25%;vertical-align:middle;min-width:120px">
-              <img src="{{post.image}}" alt="project image" style="width:auto; height:auto; max-width:100%;" />
-            </td>
-            {% endif %}
-            <td style="padding:2.5%;{% if post.image %}width:75%;{% else %}width:100%;{% endif %}vertical-align:middle">
-              <h3>{{post.title}}</h3>
-              <br>
-              {{post.authors}}
-
-              <br>
-              <em>{{post.venue}}</em>, {{ post.date | date: "%Y" }}
-              <br>
-              {% if post.arxiv %}
-              <a href="{{post.arxiv}}">arxiv</a> /
-              {% endif %}
-              {% if post.video %}
-              <a href="{{post.video}}">video</a> /
-              {% endif %}
-              {% if post.code %}
-              <a href="{{post.code}}">code</a> /
-              {% endif %}
-              {% if post.poster %}
-              <a href="{{post.poster}}">poster</a> /
-              {% endif %}
-              {% if post.slides %}
-              <a href="{{post.slides}}">slides</a> /
-              {% endif %}
-              {% if post.website %}
-              <a href="{{post.website}}">website</a> /
-              {% endif %}
-              {% if post.youtube %}
-              <a href="{{post.youtube}}">youtube</a> /
-              {% endif %}
-              <p></p>
-              {{ post.excerpt }}
-            </td>
-          </tr>
-          {% endif %}
-          {% endfor %}
-          {% endfor %}
-          {% endfor %}
-        </table>
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-          <tr>
-            <td style="padding:2.5%;width:100%;vertical-align:middle">
-              <h2>Recent Submissions</h2>
-              <p>Ongoing work currently under review or recently submitted:</p>
-              <ul>
-                <li><strong>MetaClaw: Just Talk — An Agent That Meta-Learns and Evolves in the Wild</strong> — under review at ICLR 2027</li>
-                <li><strong>ClawForge: Generating Executable Interactive Benchmarks for Command-Line Agents</strong> — under review at ICLR 2027</li>
-                <li><strong>CounterGraft: Counterfactual Execution for Agent Self-Improvement</strong> — under review at ICLR 2027</li>
-                <li><strong>AutoResearchClaw: Self-Reinforcing Autonomous Research with Human-AI Collaboration</strong> — under review at ICLR 2027</li>
-                <li><strong>VisualClaw: A Real-Time, Personalized Agent for the Physical World</strong> — under review at ICLR 2027</li>
-                <li><strong>LatentSearch: Empowering Multimodal Agents with Latent Reasoning for Visual Search</strong> — submitted to ARR, October 2026 cycle</li>
-              </ul>
-            </td>
-          </tr>
-        </table>
-        <br>
-        <br>
-        <br>
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-          <tr>
-            <td style="padding:2.5%;width:100%;vertical-align:middle">
-              <h2></h2>
-              <p>
-              </p>
-            </td>
-          </tr>
-        </table>
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-          {% assign sorted_posts = site.posts | sort: 'date' %}
-          {% for post in sorted_posts %}
-          {% for cat in post.categories %}
-          {% if cat == 'Intel' %}
-          <tr>
-            <td style="padding:2.5%;width:25%;vertical-align:middle;min-width:120px">
-              <img src="{{post.image}}" alt="project image" style="width:auto; height:auto; max-width:100%;" />
-            </td>
-            <td style="padding:2.5%;width:75%;vertical-align:middle">
-              <h3>{{post.title}}</h3>
-              <br>
-              <em>{{post.categories}} {{post.course}}</em>
-              <br>
-              {{ post.date | date: "%Y-%m-%d" }}
-
-              <br>
-              {% if post.website %}
-              <a href="{{post.website}}">website</a> /
-              {% endif %}
-              {% if post.paper %}
-              <a href="{{post.paper}}">paper</a> /
-              {% endif %}
-              {% if post.patent %}
-              <a href="{{post.patent}}">patent</a> /
-              {% endif %}
-              {% if post.patent2 %}
-              <a href="{{post.patent2}}">patent #2</a> /
-              {% endif %}
-              {% if post.patent3 %}
-              <a href="{{post.patent3}}">patent #3</a> /
-              {% endif %}
-              {% if post.video %}
-              <a href="{{post.video}}">video</a> /
-              {% endif %}
-              {% if post.video2 %}
-              <a href="{{post.video2}}">video #2</a> /
-              {% endif %}
-              {% if post.code %}
-              <a href="{{post.code}}">code</a> /
-              {% endif %}
-              {% if post.poster %}
-              <a href="{{post.poster}}">poster</a> /
-              {% endif %}
-              {% if post.slides %}
-              <a href="{{post.slides}}">slides</a> /
-              {% endif %}
-              <p></p>
-              {{ post.excerpt }}
-            </td>
-          </tr>
-          {% endif %}
-          {% endfor %}
-          {% endfor %}
-        </table>
-        <br>
-        <br>
-        <br>
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-          <tr>
-            <td style="padding:2.5%;width:100%;vertical-align:middle">
-              <h2></h2>
-              <p> 
-              </p>
-            </td>
-          </tr>
-        </table>
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-          {% assign sorted_posts = site.posts | sort: 'date' %}
-          {% for post in sorted_posts %}
-          {% for cat in post.categories %}
-          {% if cat != 'research' and cat != 'Intel' %}
-          <tr>
-            <td style="padding:2.5%;width:25%;vertical-align:middle;min-width:120px">
-              <img src="{{post.image}}" alt="project image" style="width:auto; height:auto; max-width:100%;" />
-            </td>
-            <td style="padding:2.5%;width:75%;vertical-align:middle">
-              <h3>{{post.title}}</h3>
-              <br>
-              <em>{{post.categories}} {{post.course}}</em>
-              <br>
-              {{ post.date | date: "%Y-%m-%d" }}
-
-              <br>
-              {% if post.website %}
-              <a href="{{post.website}}">website</a> /
-              {% endif %}
-              {% if post.paper %}
-              <a href="{{post.paper}}">paper</a> /
-              {% endif %}
-              {% if post.patent %}
-              <a href="{{post.patent}}">patent</a> /
-              {% endif %}
-              {% if post.patent2 %}
-              <a href="{{post.patent2}}">patent #2</a> /
-              {% endif %}
-              {% if post.patent3 %}
-              <a href="{{post.patent3}}">patent #3</a> /
-              {% endif %}
-              {% if post.video %}
-              <a href="{{post.video}}">video</a> /
-              {% endif %}
-              {% if post.video2 %}
-              <a href="{{post.video2}}">video #2</a> /
-              {% endif %}
-              {% if post.code %}
-              <a href="{{post.code}}">code</a> /
-              {% endif %}
-              {% if post.poster %}
-              <a href="{{post.poster}}">poster</a> /
-              {% endif %}
-              {% if post.slides %}
-              <a href="{{post.slides}}">slides</a> /
-              {% endif %}
-              <p></p>
-              {{ post.excerpt }}
-            </td>
-          </tr>
-          {% endif %}
-          {% endfor %}
-          {% endfor %}
-        </table>
-
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-          <tr>
-            <td style="padding:0px">
-              <br>
-              <p style="text-align:center;font-size:small;">
-                Design and source code from <a style="font-size:small;" href="https://jonbarron.info">Jon Barron's website</a> and  <a style="font-size:small;" href="https://github.com/leonidk/leonidk.github.io">leonidk's website</a>
-              </p>
-            </td>
-          </tr>
-        </table>
-      </td>
-    </tr>
-  </table>
+  <div class="page-shell">
+    <nav class="topbar" aria-label="Primary navigation">
+      <a class="wordmark" href="#top">HJ<span>.</span></a>
+      <div class="nav-links"><a href="#research">Research</a><a href="#publications">Publications</a><a href="#submissions">In progress</a></div>
+    </nav>
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Ph.D. Student · UNC-Chapel Hill</p>
+          <h1>Haonian Ji</h1>
+          <p class="hero-lede">I build AI agents that learn, reason, and improve through interaction.</p>
+          <p class="hero-bio">I am a Ph.D. student in Computer Science at the <a href="https://cs.unc.edu/">University of North Carolina at Chapel Hill</a>, advised by <a href="https://www.huaxiuyao.io/">Prof. Huaxiu Yao</a>. My work spans self-evolving agents, multimodal reasoning, AI alignment, and optimization.</p>
+          <div class="hero-actions"><a class="button button-primary" href="mailto:haonianj@cs.unc.edu">Email me</a><a class="button" href="https://github.com/HaonianJi">GitHub</a><a class="button" href="https://openreview.net/profile?id=~Haonian_Ji1">OpenReview</a></div>
+        </div>
+        <div class="portrait-wrap"><div class="portrait-glow" aria-hidden="true"></div><img class="portrait" src="images/circle_bw_crop.jpg" alt="Portrait of Haonian Ji"><div class="portrait-note"><span></span> Chapel Hill, NC</div></div>
+      </section>
+      <section class="research-strip" id="research" aria-label="Research interests">
+        <p>Research focus</p><div class="focus-list"><span>Self-evolving agents</span><span>Multimodal reasoning</span><span>AI alignment</span><span>Optimization</span></div>
+      </section>
+      <section class="about-section">
+        <div class="section-kicker">About</div>
+        <div class="about-grid"><h2>Building adaptive AI for open-ended problems.</h2><div class="about-copy">
+          <p>I received my bachelor's degree in Artificial Intelligence from Southwest Jiaotong University in 2026. There, I worked on evolutionary optimization with <a href="https://www.researchgate.net/profile/Hongmei-Chen-13">Prof. Hongmei Chen</a> and led a national-level undergraduate innovation project on large-model-based reading assessment and early dyslexia screening.</p>
+          <p>Before starting my Ph.D., I was a research intern at the <a href="https://www.huaxiuyao.io/aiming-lab/">AIMING Lab</a>. Earlier, I researched large models for autonomous driving at CIDI with <a href="https://billchan226.github.io/">Dr. Zhaorun Chen</a>.</p>
+        </div></div>
+      </section>
+      <section class="section" id="publications">
+        <div class="section-heading"><div><div class="section-kicker">Research</div><h2>Selected publications</h2></div><p>Lead-author work appears first. <strong>*</strong> denotes equal contribution.</p></div>
+        <div class="publication-list">
+          {% assign custom_order = "EduVisBench,ClawArena,Paper2Figure,Agent0-VL,MJ-Video,GLIMPSE,Two-stage multi-modal" | split: "," %}
+          {% for title_key in custom_order %}{% for post in site.posts %}{% for cat in post.categories %}{% if cat == 'research' and post.title contains title_key %}
+          <article class="publication-card{% if post.role %} lead-work{% endif %}">
+            <div class="paper-media">{% if post.image %}<img src="{{ post.image }}" alt="Preview for {{ post.title }}" loading="lazy">{% else %}<div class="paper-placeholder placeholder-{{ forloop.index | modulo: 3 }}" aria-hidden="true"><span>{{ post.visual | default: title_key }}</span></div>{% endif %}</div>
+            <div class="paper-content">
+              <div class="paper-meta"><span class="venue-badge">{{ post.venue }}</span>{% if post.role %}<span class="role-badge">{{ post.role }}</span>{% endif %}</div>
+              <h3>{{ post.title }}</h3><p class="paper-authors">{{ post.authors }}</p><div class="paper-abstract">{{ post.excerpt }}</div>
+              <div class="paper-links">{% if post.website %}<a href="{{ post.website }}">Paper</a>{% endif %}{% if post.arxiv %}<a href="{{ post.arxiv }}">arXiv</a>{% endif %}{% if post.code %}<a href="{{ post.code }}">Code</a>{% endif %}{% if post.video %}<a href="{{ post.video }}">Video</a>{% endif %}{% if post.poster %}<a href="{{ post.poster }}">Poster</a>{% endif %}{% if post.slides %}<a href="{{ post.slides }}">Slides</a>{% endif %}{% if post.youtube %}<a href="{{ post.youtube }}">YouTube</a>{% endif %}</div>
+            </div>
+          </article>
+          {% endif %}{% endfor %}{% endfor %}{% endfor %}
+        </div>
+      </section>
+      <section class="section submissions-section" id="submissions">
+        <div class="section-heading"><div><div class="section-kicker">What I’m working on</div><h2>Recent submissions</h2></div><p>Ongoing research, listed separately from accepted publications.</p></div>
+        <div class="submission-grid">
+          <article><span>Under review · ICLR 2027</span><h3>MetaClaw</h3><p>Just Talk — An Agent That Meta-Learns and Evolves in the Wild</p></article>
+          <article><span>Under review · ICLR 2027</span><h3>ClawForge</h3><p>Generating Executable Interactive Benchmarks for Command-Line Agents</p></article>
+          <article><span>Under review · ICLR 2027</span><h3>CounterGraft</h3><p>Counterfactual Execution for Agent Self-Improvement</p></article>
+          <article><span>Under review · ICLR 2027</span><h3>AutoResearchClaw</h3><p>Self-Reinforcing Autonomous Research with Human-AI Collaboration</p></article>
+          <article><span>Under review · ICLR 2027</span><h3>VisualClaw</h3><p>A Real-Time, Personalized Agent for the Physical World</p></article>
+          <article><span>Submitted · ARR October 2026</span><h3>LatentSearch</h3><p>Empowering Multimodal Agents with Latent Reasoning for Visual Search</p></article>
+        </div>
+      </section>
+    </main>
+    <footer><p>© {{ site.time | date: '%Y' }} Haonian Ji</p><p>Designed for clarity, curiosity, and evolving research.</p></footer>
+  </div>
 </body>
-
 </html>
-

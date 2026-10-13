@@ -6,6 +6,7 @@ image: /images/EduVisBench.png
 categories: research
 authors: "<strong>Haonian Ji</strong>, Shi Qiu, Siyang Xin, Siwei Han, Zhaorun Chen, Hongyi Wang, Dake Zhang, Huaxiu Yao"
 venue: "ICLR 2026"
+role: "First author"
 arxiv: https://arxiv.org/abs/2505.16832
 code: https://github.com/aiming-lab/EduVisAgent
 website: https://proceedings.iclr.cc/paper_files/paper/2026/file/65ccdfe02045fa0b823c5fa7ffd56b66-Paper-Conference.pdf
