@@ -1,0 +1,129 @@
+/* Motion layer for the homepage: drifting paper wall, pulse dots,
+   scroll reveal, hover polish. Loaded after style.css. */
+
+html, body { overflow-x: clip; }
+
+/* ---------- sticky, frosted top bar ---------- */
+.topbar {
+  position: sticky; top: 0; z-index: 40;
+  background: rgba(255,255,255,.82);
+  -webkit-backdrop-filter: saturate(170%) blur(12px);
+  backdrop-filter: saturate(170%) blur(12px);
+  transition: box-shadow .3s ease;
+}
+.topbar.is-scrolled { box-shadow: 0 6px 24px rgba(24,33,42,.06); }
+.nav-links a { position: relative; color: var(--muted); transition: color .2s; }
+.nav-links a::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -5px; height: 1.5px;
+  background: var(--accent); transform: scaleX(0); transform-origin: left;
+  transition: transform .28s cubic-bezier(.2,.8,.2,1);
+}
+.nav-links a:hover, .nav-links a.is-current { color: var(--accent-dark); }
+.nav-links a:hover::after, .nav-links a.is-current::after { transform: scaleX(1); }
+
+/* ---------- hero with drifting paper wall ---------- */
+.hero { position: relative; isolation: isolate; }
+.hero-copy, .portrait-wrap { position: relative; z-index: 2; }
+
+.paper-wall {
+  position: absolute; z-index: 0; top: 0; bottom: 0;
+  left: 50%; width: 100vw; margin-left: -50vw;
+  overflow: hidden; pointer-events: none;
+}
+.paper-wall .wall-rows {
+  position: absolute; inset: -14% -12%;
+  display: flex; flex-direction: column; justify-content: center; gap: 16px;
+  transform: perspective(1500px) rotateX(14deg) rotateZ(-6deg) scale(1.05);
+  transition: translate .9s cubic-bezier(.2,.8,.2,1);
+}
+.wall-row { height: 118px; flex: none; }
+.wall-track {
+  display: flex; gap: 16px; width: max-content;
+  animation: wall-drift var(--dur, 120s) linear infinite;
+  animation-direction: var(--dir, normal);
+}
+.wall-row:nth-child(even) .wall-track { --dir: reverse; }
+@keyframes wall-drift { to { transform: translate3d(calc(-50% - 8px), 0, 0); } }
+.paper-wall.is-paused .wall-track { animation-play-state: paused; }
+.wall-tile {
+  flex: none; width: 210px; height: 118px;
+  border: 1px solid var(--line); border-radius: 9px; overflow: hidden;
+  background: #fff center / contain no-repeat;
+  box-shadow: 0 4px 14px rgba(24,33,42,.06);
+}
+/* wash: keeps text crisp, lets the wall show at the edges */
+.paper-wall::after {
+  content: ""; position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 30% 38% at 30% 40%, rgba(23,107,98,.06), transparent 70%),
+    radial-gradient(ellipse 62% 62% at 45% 50%, rgba(255,255,255,.97) 0%, rgba(255,255,255,.93) 55%, rgba(255,255,255,.62) 80%, rgba(255,255,255,.3) 100%),
+    linear-gradient(180deg, rgba(255,255,255,.7) 0%, rgba(255,255,255,0) 22%, rgba(255,255,255,0) 72%, #fff 100%);
+}
+
+/* ---------- pulse dots ---------- */
+.eyebrow { display: inline-flex; align-items: center; gap: 10px; }
+.pulse-dot, .portrait-note span {
+  position: relative; display: inline-block; flex: none;
+  width: 7px; height: 7px; border-radius: 50%; background: var(--accent);
+}
+.pulse-dot::after, .portrait-note span::after {
+  content: ""; position: absolute; inset: -5px; border-radius: 50%;
+  border: 2px solid var(--accent);
+  animation: pulse-ring 2.2s ease-out infinite;
+}
+@keyframes pulse-ring { from { transform: scale(.4); opacity: .6; } 70%, to { transform: scale(1); opacity: 0; } }
+
+/* ---------- hero entrance ---------- */
+.hero-copy > *, .portrait-wrap { animation: rise .9s cubic-bezier(.22,1,.36,1) both; }
+.hero-copy > :nth-child(2) { animation-delay: .08s; }
+.hero-copy > :nth-child(3) { animation-delay: .16s; }
+.hero-copy > :nth-child(4) { animation-delay: .24s; }
+.hero-copy > :nth-child(5) { animation-delay: .32s; }
+.portrait-wrap { animation-delay: .2s; }
+@keyframes rise { from { opacity: 0; transform: translateY(22px); } }
+
+.portrait { transition: transform .5s cubic-bezier(.2,.8,.2,1), box-shadow .5s, filter .5s; }
+.portrait-wrap:hover .portrait { transform: translateY(-4px); filter: none; box-shadow: 0 18px 40px rgba(24,33,42,.14); }
+
+.hero-actions .button { transition: color .2s, border-color .2s, transform .2s; }
+.hero-actions .button:hover { transform: translateY(-2px); }
+
+/* ---------- scroll reveal ---------- */
+.js-motion .reveal { opacity: 0; transform: translateY(26px); transition: opacity .75s cubic-bezier(.22,1,.36,1), transform .75s cubic-bezier(.22,1,.36,1); transition-delay: var(--d, 0s); }
+.js-motion .reveal.is-in { opacity: 1; transform: none; }
+
+/* ---------- publication cards ---------- */
+.publication-card { position: relative; }
+.publication-card .paper-media { overflow: hidden; transition: border-color .3s, box-shadow .3s; }
+.publication-card .paper-media img { transition: transform .6s cubic-bezier(.2,.8,.2,1); }
+.publication-card:hover .paper-media { border-color: var(--accent); box-shadow: 0 10px 28px rgba(24,33,42,.1); }
+.publication-card:hover .paper-media img { transform: scale(1.05); }
+.publication-card h3 { transition: color .2s; }
+.publication-card:hover h3 { color: var(--accent-dark); }
+.publication-card::before {
+  content: ""; position: absolute; left: -14px; top: 24px; bottom: 24px; width: 2px;
+  background: var(--accent); border-radius: 2px;
+  transform: scaleY(0); transform-origin: top; transition: transform .35s cubic-bezier(.2,.8,.2,1);
+}
+.publication-card:first-child::before { top: 8px; }
+.publication-card:hover::before { transform: scaleY(1); }
+.paper-links a { transition: color .2s, transform .2s; display: inline-block; }
+.paper-links a:hover { transform: translateY(-1px); }
+
+.focus-list span { transition: color .2s; }
+.focus-list span:hover { color: var(--accent); }
+
+@media (max-width: 760px) {
+  .wall-row { height: 90px; }
+  .wall-tile { width: 160px; height: 90px; }
+  .paper-wall::after {
+    background: linear-gradient(180deg, rgba(255,255,255,.78) 0%, rgba(255,255,255,.93) 30%, rgba(255,255,255,.96) 70%, #fff 100%);
+  }
+  .publication-card::before { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wall-track, .pulse-dot::after, .portrait-note span::after,
+  .hero-copy > *, .portrait-wrap { animation: none !important; }
+  .js-motion .reveal { opacity: 1; transform: none; transition: none; }
+}
