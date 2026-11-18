@@ -81,4 +81,53 @@
   };
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
+  /* scroll progress */
+  var prog = document.createElement("div");
+  prog.className = "scroll-progress"; prog.setAttribute("aria-hidden", "true");
+  document.body.appendChild(prog);
+  var setProg = function () {
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    prog.style.setProperty("--p", h > 0 ? (window.scrollY / h).toFixed(4) : 0);
+  };
+  window.addEventListener("scroll", setProg, { passive: true }); setProg();
+
+  /* typed phrase in the lede (full sentence kept for screen readers) */
+  var lede = document.querySelector(".hero-lede");
+  if (lede && !reduce) {
+    var phrases = ["learn from interaction.", "reason across modalities.", "evolve on their own.", "improve through experience."];
+    lede.setAttribute("aria-label", lede.textContent.trim());
+    lede.innerHTML = 'I build AI agents that<br><span class="typed" aria-hidden="true"></span><span class="typed-caret" aria-hidden="true"></span>';
+    var out = lede.querySelector(".typed"), pi = 0, ci = 0, del = false;
+    (function type() {
+      var w = phrases[pi];
+      ci += del ? -1 : 1;
+      out.textContent = w.slice(0, ci);
+      var wait = del ? 28 : 55 + Math.random() * 40;
+      if (!del && ci === w.length) { del = true; wait = 2200; }
+      else if (del && ci === 0) { del = false; pi = (pi + 1) % phrases.length; wait = 350; }
+      setTimeout(type, wait);
+    })();
+  }
+
+  /* card spotlight + thumbnail tilt */
+  if (!reduce && window.matchMedia("(pointer: fine)").matches) {
+    q(".publication-card").forEach(function (c) {
+      var m = c.querySelector(".paper-media");
+      c.addEventListener("pointermove", function (e) {
+        var r = c.getBoundingClientRect();
+        c.style.setProperty("--mx", (e.clientX - r.left) + "px");
+        c.style.setProperty("--my", (e.clientY - r.top) + "px");
+        if (m) {
+          var mr = m.getBoundingClientRect();
+          var x = Math.max(-1, Math.min(1, (e.clientX - mr.left) / mr.width * 2 - 1));
+          var y = Math.max(-1, Math.min(1, (e.clientY - mr.top) / mr.height * 2 - 1));
+          m.style.setProperty("--ry", (x * 7).toFixed(2) + "deg");
+          m.style.setProperty("--rx", (y * -6).toFixed(2) + "deg");
+        }
+      });
+      c.addEventListener("pointerleave", function () {
+        if (m) { m.style.setProperty("--rx", "0deg"); m.style.setProperty("--ry", "0deg"); }
+      });
+    });
+  }
 })();
