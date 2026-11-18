@@ -74,16 +74,13 @@ html, body { overflow-x: clip; }
 @keyframes pulse-ring { from { transform: scale(.4); opacity: .6; } 70%, to { transform: scale(1); opacity: 0; } }
 
 /* ---------- hero entrance ---------- */
-.hero-copy > *, .portrait-wrap { animation: rise .9s cubic-bezier(.22,1,.36,1) both; }
+.hero-copy > * { animation: rise .9s cubic-bezier(.22,1,.36,1) both; }
 .hero-copy > :nth-child(2) { animation-delay: .08s; }
 .hero-copy > :nth-child(3) { animation-delay: .16s; }
 .hero-copy > :nth-child(4) { animation-delay: .24s; }
 .hero-copy > :nth-child(5) { animation-delay: .32s; }
-.portrait-wrap { animation-delay: .2s; }
 @keyframes rise { from { opacity: 0; transform: translateY(22px); } }
 
-.portrait { transition: transform .5s cubic-bezier(.2,.8,.2,1), box-shadow .5s, filter .5s; }
-.portrait-wrap:hover .portrait { transform: translateY(-4px); filter: none; box-shadow: 0 18px 40px rgba(24,33,42,.14); }
 
 .hero-actions .button { transition: color .2s, border-color .2s, transform .2s; }
 .hero-actions .button:hover { transform: translateY(-2px); }
@@ -124,7 +121,7 @@ html, body { overflow-x: clip; }
 
 @media (prefers-reduced-motion: reduce) {
   .wall-track, .pulse-dot::after, .portrait-note span::after,
-  .hero-copy > *, .portrait-wrap { animation: none !important; }
+  .hero-copy > * { animation: none !important; }
   .js-motion .reveal { opacity: 1; transform: none; transition: none; }
 }
 
@@ -162,15 +159,6 @@ html, body { overflow-x: clip; }
 }
 @keyframes caret { 50% { opacity: 0; } }
 
-/* portrait: rotating gradient frame + soft glow */
-@property --ring { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
-.portrait {
-  padding: 3px; border: 0 !important;
-  background: conic-gradient(from var(--ring), #0f766e, #8fd3c8, #d4a35a, #0f766e);
-  animation: ring 6s linear infinite;
-  box-shadow: 0 16px 40px rgba(15,118,110,.16);
-}
-@keyframes ring { to { --ring: 360deg; } }
 
 /* publication cards: pointer spotlight + tilted thumbnail */
 .publication-card::after {
@@ -184,8 +172,91 @@ html, body { overflow-x: clip; }
 
 @media (max-width: 760px) { .publication-card::after { inset: 0; } }
 @media (prefers-reduced-motion: reduce) {
-  .hero h1, .portrait, .typed-caret { animation: none !important; }
+  .hero h1, .typed-caret { animation: none !important; }
   .hero h1 { color: var(--ink); background: none; }
 }
 .hero-lede { min-height: 2.5em; }
 @media (max-width: 560px) { .typed { white-space: normal; } .hero-lede { min-height: 3.75em; } }
+
+/* =========== publications: richer motion =========== */
+
+/* section heading: kicker bar grows, title underline draws */
+.section-heading .section-kicker { display: inline-flex; align-items: center; gap: 10px; }
+.section-heading .section-kicker::before {
+  content: ""; width: 0; height: 2px; border-radius: 2px; background: var(--accent);
+  transition: width .7s cubic-bezier(.22,1,.36,1) .25s;
+}
+.section-heading.is-in .section-kicker::before { width: 26px; }
+.section-heading h2 {
+  background: linear-gradient(90deg, #2fa39a, #d4a35a) no-repeat 0 100% / 0 3px;
+  padding-bottom: 6px; transition: background-size 1s cubic-bezier(.22,1,.36,1) .35s;
+}
+.section-heading.is-in h2 { background-size: 72px 3px; }
+
+/* card entrance: thumbnail wipes in, text lines rise one by one, divider draws */
+.js-motion .publication-card.reveal { opacity: 1; transform: none; }
+.publication-card {
+  border-bottom-color: transparent !important;
+  background: #fff linear-gradient(90deg, var(--accent) 0, #b9d9d4 30%, var(--line) 60%) no-repeat 0 100% / 0 1px;
+  transition: background-size 1.1s cubic-bezier(.22,1,.36,1) calc(var(--d, 0s) + .35s);
+}
+.publication-card.is-in { background-size: 100% 1px; }
+.js-motion .publication-card.reveal .paper-media {
+  clip-path: inset(0 100% 0 0 round 3px);
+  transition: clip-path .9s cubic-bezier(.65,0,.25,1) var(--d, 0s), transform .25s ease-out, border-color .3s, box-shadow .3s;
+}
+.js-motion .publication-card.reveal .paper-media img { transform: scale(1.18); transition: transform 1.2s cubic-bezier(.22,1,.36,1) var(--d, 0s); }
+.js-motion .publication-card.is-in .paper-media { clip-path: inset(0 0 0 0 round 3px); }
+.js-motion .publication-card.is-in .paper-media img { transform: none; }
+.js-motion .publication-card.is-in:hover .paper-media img { transform: scale(1.06); transition-duration: .6s; transition-delay: 0s; }
+.js-motion .publication-card.reveal .paper-content > * {
+  opacity: 0; transform: translateY(14px);
+  transition: opacity .6s ease, transform .7s cubic-bezier(.22,1,.36,1);
+}
+.js-motion .publication-card.is-in .paper-content > * { opacity: 1; transform: none; }
+.js-motion .publication-card.is-in .paper-content > :nth-child(1) { transition-delay: calc(var(--d, 0s) + .25s); }
+.js-motion .publication-card.is-in .paper-content > :nth-child(2) { transition-delay: calc(var(--d, 0s) + .33s); }
+.js-motion .publication-card.is-in .paper-content > :nth-child(3) { transition-delay: calc(var(--d, 0s) + .41s); }
+.js-motion .publication-card.is-in .paper-content > :nth-child(4) { transition-delay: calc(var(--d, 0s) + .49s); }
+.js-motion .publication-card.is-in .paper-content > :nth-child(5) { transition-delay: calc(var(--d, 0s) + .57s); }
+
+/* venue badge: small pulse dot for ongoing work, badge highlight on hover */
+.venue-badge { position: relative; transition: color .2s; }
+.current-work .status-badge { display: inline-flex; align-items: center; gap: 8px; }
+.current-work .status-badge::before {
+  content: ""; width: 6px; height: 6px; border-radius: 50%; background: #c9963f;
+  box-shadow: 0 0 0 0 rgba(201,150,63,.55); animation: badge-pulse 2s ease-out infinite;
+}
+@keyframes badge-pulse { 70%, to { box-shadow: 0 0 0 7px rgba(201,150,63,0); } }
+
+/* thumbnail: light sheen sweeps across on hover */
+.publication-card .paper-media { position: relative; }
+.publication-card .paper-media::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(115deg, transparent 30%, rgba(255,255,255,.65) 48%, transparent 66%);
+  transform: translateX(-120%);
+}
+.publication-card:hover .paper-media::after { transform: translateX(120%); transition: transform .9s cubic-bezier(.2,.8,.2,1); }
+
+/* author highlight: own name gets an underline that draws on hover */
+.paper-authors strong {
+  background: linear-gradient(var(--accent), var(--accent)) no-repeat 0 100% / 0 1.5px;
+  transition: background-size .4s cubic-bezier(.2,.8,.2,1);
+}
+.publication-card:hover .paper-authors strong { background-size: 100% 1.5px; }
+
+/* links: underline grows in accent, arrow slides in */
+.paper-links a { transition: color .25s, border-color .25s; background: linear-gradient(var(--accent), var(--accent)) no-repeat 0 100% / 0 1px; transition: color .25s, background-size .35s cubic-bezier(.2,.8,.2,1); }
+.paper-links a::after { content: "↗"; display: inline-block; width: 0; opacity: 0; transform: translate(-3px, 3px); transition: width .25s, opacity .25s, transform .25s, margin .25s; }
+.paper-links a:hover { color: var(--accent) !important; background-size: 100% 1px; }
+.paper-links a:hover::after { width: .9em; margin-left: 3px; opacity: 1; transform: none; }
+
+/* portrait: no frame, just the round photo */
+.portrait { border: 0 !important; border-radius: 50% !important; aspect-ratio: 1 / 1 !important; object-fit: cover; background: none !important; box-shadow: none !important; padding: 0 !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  .js-motion .publication-card.reveal .paper-media { clip-path: none; }
+  .js-motion .publication-card.reveal .paper-media img, .js-motion .publication-card.reveal .paper-content > * { opacity: 1; transform: none; }
+  .publication-card { background-size: 100% 1px; }
+  .current-work .status-badge::before { animation: none; }
+}
